@@ -38,6 +38,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self loadData];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 #pragma mark 从数据库加载所有数据

@@ -181,31 +181,10 @@
             }
         }];
 
-        
         //秒表
         measureTime = [[MZTimerLabel alloc] initWithLabel:_timerLable1 andTimerType:MZTimerLabelTypeStopWatch];
         measureTime.timeFormat = @"HH:mm:ss SS";
-        
-//        //显示地图覆盖物
-//        //构造折线数据对象
-//        CLLocationCoordinate2D commonPolylineCoords[4];
-//        commonPolylineCoords[0].latitude = 28.178553;
-//        commonPolylineCoords[0].longitude = 112.940472;
-//        
-//        commonPolylineCoords[1].latitude = 28.178553;
-//        commonPolylineCoords[1].longitude = 113.040472;
-//        
-//        commonPolylineCoords[2].latitude = 28.248553;
-//        commonPolylineCoords[2].longitude = 113.040472;
-//        
-//        commonPolylineCoords[3].latitude = 28.248553;
-//        commonPolylineCoords[3].longitude = 113.060472;
-//        
-//        //构造折线对象
-//        MKPolyline *commonPolyline = [MKPolyline polylineWithCoordinates:commonPolylineCoords count:4];
-//        
-//        //在地图上添加折线对象
-//        [_mapView addOverlay: commonPolyline];
+
         //实例化经纬度数组
         self.locationArray = [[NSMutableArray alloc]init];
         //实例化里程数组
@@ -214,7 +193,6 @@
     }
     
 }
-
 
 
 //地图Overlay代理
@@ -313,6 +291,7 @@
 //    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(dataMeasure) userInfo:nil repeats:YES];
 //}
 
+
 //数据测量方法
 - (void)dataMeasure{
     NSNumber *lat = [[NSNumber alloc]initWithDouble:self.locationManager.location.coordinate.latitude];
@@ -322,9 +301,7 @@
     
     NSLog(@"%@",self.locationArray);
     
-
-    
-    //数组实例
+/**数组实例**/
 //    NSArray *array = [[NSArray alloc] initWithObjects:[NSArray arrayWithObjects:@"iOS",@"android",@"C",@"C++",@"OC",@"JAVA", nil],[NSArray arrayWithObjects:@"php",@"c#",@"FMDB",@"sqlite",@"odbc",@"photoshop", nil],
 //                      [NSArray arrayWithObjects:@"javascript",@"xml",@"html",@"cocos2D",@"u3d",@"sjjg", nil],nil];
 //    NSLog(@"数组实例：%@",[[array objectAtIndex:1] objectAtIndex:2]);

@@ -25,7 +25,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="idCellRecord" textLabel="ykF-ez-Uok" detailTextLabel="DNI-EH-ULf" style="IBUITableViewCellStyleSubtitle" id="4Y8-gz-Wxd">
-                                        <rect key="frame" x="0.0" y="22" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="86" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Y8-gz-Wxd" id="FtN-bi-VVd">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43"/>
@@ -47,6 +47,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="4Or-ph-hSu" kind="show" id="0jT-FZ-uWb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -57,7 +60,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="历史记录" image="attibutes.png" id="9A1-bD-wGL"/>
+                    <navigationItem key="navigationItem" id="ejA-0q-MKe">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="9xQ-rK-IXI"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
@@ -66,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQA-OO-TCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="890" y="1087"/>
+            <point key="canvasLocation" x="1516" y="1087"/>
         </scene>
         <!--路况监测-->
         <scene sceneID="tne-QT-ifu">
@@ -323,10 +328,10 @@
             </objects>
             <point key="canvasLocation" x="1794" y="99"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--记录详情-->
         <scene sceneID="VRK-dM-rfd">
             <objects>
-                <viewController storyboardIdentifier="DataDetail" id="4Or-ph-hSu" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DataDetail" title="记录详情" hidesBottomBarWhenPushed="YES" id="4Or-ph-hSu" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sAA-mY-X1U"/>
                         <viewControllerLayoutGuide type="bottom" id="nU7-l3-ck2"/>
@@ -338,24 +343,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jzx-pK-2tM">
                                 <rect key="frame" x="0.0" y="60" width="414" height="445"/>
                             </mapView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b5c-E3-NoZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="轨迹详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAV-Sl-oSb">
-                                        <rect key="frame" x="163" y="31" width="88" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAU-Mz-1t4">
-                                        <rect key="frame" x="9" y="27" width="44" height="30"/>
-                                        <state key="normal" title="&lt; 返回">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1647058824" green="0.1647058824" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBT-YA-0d3">
                                 <rect key="frame" x="0.0" y="676" width="414" height="60"/>
                                 <subviews>
@@ -384,6 +371,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <segue destination="ktf-3F-kJx" kind="show" id="tuK-aG-59C"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -396,12 +386,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qud-ga-1DA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="1087"/>
+            <point key="canvasLocation" x="2210" y="1087"/>
         </scene>
-        <!--Edit Annotation View Controller-->
+        <!--标注修改-->
         <scene sceneID="od2-2K-hLa">
             <objects>
-                <viewController storyboardIdentifier="EditAnnotation" id="ktf-3F-kJx" customClass="EditAnnotationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditAnnotation" title="标注修改" id="ktf-3F-kJx" customClass="EditAnnotationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ytd-G5-nTL"/>
                         <viewControllerLayoutGuide type="bottom" id="cWY-1o-jgH"/>
@@ -410,24 +400,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69m-2G-UGl">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="编辑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K1-oO-0QL">
-                                        <rect key="frame" x="163" y="31" width="88" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZ1-LU-iSY">
-                                        <rect key="frame" x="9" y="27" width="44" height="30"/>
-                                        <state key="normal" title="&lt; 返回">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.17647058823529413" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjm-xP-kJF">
                                 <rect key="frame" x="0.0" y="339" width="414" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -436,28 +408,28 @@
                                 <state key="normal" title="保存"/>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uv7-Tj-hRy">
-                                <rect key="frame" x="0.0" y="59" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="59" width="414" height="239"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="备注：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRx-Cm-36Y">
-                                        <rect key="frame" x="23" y="66" width="51" height="21"/>
+                                        <rect key="frame" x="18" y="82" width="51" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTR-5Y-GAd">
-                                        <rect key="frame" x="75" y="14" width="326" height="30"/>
+                                        <rect key="frame" x="70" y="30" width="326" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="egy-Yu-oTA">
-                                        <rect key="frame" x="75" y="66" width="326" height="128"/>
+                                        <rect key="frame" x="70" y="82" width="326" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="标题：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipN-H3-AH3">
-                                        <rect key="frame" x="23" y="18" width="51" height="21"/>
+                                        <rect key="frame" x="18" y="34" width="51" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -482,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Il-PY-lWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2209" y="1087"/>
+            <point key="canvasLocation" x="2835" y="1087"/>
         </scene>
         <!--路况标注-->
         <scene sceneID="CWw-RG-hgi">
@@ -569,7 +541,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Zbj-hj-huP" kind="relationship" relationship="viewControllers" id="GLO-Dc-5eZ"/>
-                        <segue destination="Ooc-Ut-gqb" kind="relationship" relationship="viewControllers" id="S1d-RB-7TD"/>
+                        <segue destination="bD7-Vt-aCL" kind="relationship" relationship="viewControllers" id="S1d-RB-7TD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rj6-qN-hmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -594,6 +566,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgI-3Y-Gwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1094" y="99"/>
+        </scene>
+        <!--历史记录-->
+        <scene sceneID="Rt2-Dm-Zt2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bD7-Vt-aCL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="历史记录" image="attibutes.png" id="9A1-bD-wGL"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wzU-xo-i5i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ooc-Ut-gqb" kind="relationship" relationship="rootViewController" id="7fB-8C-utL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0X9-0v-rci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="890" y="1087"/>
         </scene>
     </scenes>
     <resources>
