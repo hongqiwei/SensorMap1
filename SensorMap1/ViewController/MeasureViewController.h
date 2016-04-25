@@ -27,8 +27,15 @@
 
 @property (strong,nonatomic) NSString *aTitle1;
 @property (strong,nonatomic) NSString *aSubTitle1;
-
+//测量数据数组
+@property (strong,nonatomic) NSMutableArray *dataDetailArray;
 -(void)setAnnotation;
 -(void)drawLine;
+@property (weak, nonatomic) IBOutlet UIView *sensorUIView;
+@property (weak, nonatomic) IBOutlet UIView *mileageUIView;
+@property (weak, nonatomic) IBOutlet UIView *speedUIView;
+@property (weak, nonatomic) IBOutlet UIView *aSpeedUIView;
+@property (weak, nonatomic) IBOutlet UIView *altUIView;
+@property (weak, nonatomic) IBOutlet UIView *spareUIView;
 
 @end

@@ -27,10 +27,9 @@
     [super viewDidLoad];
     
     //初始化DBManager
-    //初始化DBManager
     _dbManager = [[DBManager alloc] initWithDatabaseFilename:DBNAME];
-    [_dbManager createTableWithSql:"CREATE TABLE roadData(roadInfoID integer primary key, roadname text, datetime text, info text);"];
-    
+    //[_dbManager createTableWithSql:"CREATE TABLE roadData(roadInfoID integer primary key, roadname text, datetime text, info text);"];
+    [self.dbManager createTable];
     //去除TableView多余横线
     [self setTableFooterView:_tableMain];
     

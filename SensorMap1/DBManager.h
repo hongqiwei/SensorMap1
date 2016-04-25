@@ -17,6 +17,7 @@
 -(NSArray *)loadDataFromDB:(NSString *)query;//查询
 -(void)executeQuery:(NSString *)query;//插入、更新、删除
 -(instancetype)initWithDatabaseFilename:(NSString *)dbFilename;//初始化方法
--(BOOL)createTableWithSql:(const char *)sql_stmt;//新建表
+//-(BOOL)createTableWithSql:(const char *)sql_stmt;//新建表
+-(void)createTable;
 
 @end

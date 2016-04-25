@@ -21,6 +21,7 @@
     
     //初始化dbManager
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"myDB.sqlite"];
+    [self.dbManager createTable];
     
     self.annotionTitleTextField.text = [[NSString alloc] initWithFormat:@"%@",self.roadName];
     NSLog(@"返回值：%@",self.roadName);
@@ -47,8 +48,10 @@
     date = [date dateByAddingTimeInterval:interval];
     NSLog(@"%@", date);
     
+    NSTimeInterval sjc = [[NSDate date] timeIntervalSince1970] ;
+    
     NSString *query;
-    query = [NSString stringWithFormat:@"insert into roadData values(null, '%@', '%@', %@)", self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text];
+    query = [NSString stringWithFormat:@"insert into roadData values(%f, '%@', '%@', %@)",sjc, self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text];
     //执行sql语句
     [self.dbManager executeQuery:query];
     if (self.dbManager.affectedRows != 0) {
@@ -69,6 +72,28 @@
     
     [measureVC setAnnotation];
     [measureVC drawLine];
+    
+    //roadInfoID integer,secID integer primary key,lat text,lng text,speed text,altitude text,sensordata text
+    //secID,lat1,log1,speed,alt,nil
+    NSString *query1;
+    for (int a=0; a<measureVC.dataDetailArray.count-1; a++) {
+        NSString *secIdTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:0]];
+        NSString *latTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:1]];
+        NSString *lngTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:2]];
+        NSString *speedTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:3]];
+        NSString *altTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:4]];
+        
+        query1 = [NSString stringWithFormat:@"insert into dataDetail values(%f,'%@','%@','%@','%@','%@',null)",sjc,secIdTMP,latTMP,lngTMP,speedTMP,altTMP];
+        //执行sql语句
+        [self.dbManager executeQuery:query1];
+        if (self.dbManager.affectedRows != 0) {
+            NSLog(@"Query1 was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
+        }
+        else{
+            NSLog(@"Could not execute the query1.");
+        }
+    }
+    
 
 }
 

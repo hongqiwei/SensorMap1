@@ -16,8 +16,6 @@
 #import <CoreMotion/CoreMotion.h>
 
 #define DBNAME    @"myDB.sqlite"
-#define TABLENAME @"BASICTABLE"
-#define NAME      @"name"
 
 @interface MeasureViewController ()<MKMapViewDelegate,CLLocationManagerDelegate>
 
@@ -46,6 +44,7 @@
 
 @property (strong,nonatomic) NSMutableArray *locationArray;
 @property (strong,nonatomic) NSMutableArray *distanceArray;
+
 @property (nonatomic) double distance;
 @property (nonatomic) int t;
 @property (nonatomic) int timeInterval;
@@ -115,7 +114,7 @@
     
     //初始化DBManager
     _dbManager = [[DBManager alloc] initWithDatabaseFilename:DBNAME];
-    [_dbManager createTableWithSql:"CREATE TABLE roadData(roadInfoID integer primary key, roadname text, datetime text, info text);"];
+    [self.dbManager createTable];
     
     //隐藏navigationbar
     self.navigationController.navigationBarHidden = YES;
@@ -168,8 +167,15 @@
             {
                 // 显示最前面的地标信息
                 CLPlacemark *firstPlacemark=[placemarks firstObject];
-                self.roadNameLable.text=[[NSString alloc]initWithFormat:@"%@",firstPlacemark.thoroughfare];
-                NSLog(@"name:%@",firstPlacemark.name);
+                
+                if (firstPlacemark.thoroughfare != NULL) {
+                    
+                    self.roadNameLable.text=[[NSString alloc]initWithFormat:@"%@",firstPlacemark.thoroughfare];
+                    NSLog(@"道路名是:%@",firstPlacemark.thoroughfare);
+                }else{
+                    self.roadNameLable.text=[[NSString alloc]initWithFormat:@"%@",firstPlacemark.name];
+                    NSLog(@"建筑物名是：%@",firstPlacemark.name);
+                }
                 
                 _AnnotionTitle = [[NSString alloc]initWithFormat:@"%@",firstPlacemark.thoroughfare];
                 NSLog(@"annotiontitle:%@",self.AnnotionTitle);
@@ -185,11 +191,33 @@
         measureTime = [[MZTimerLabel alloc] initWithLabel:_timerLable1 andTimerType:MZTimerLabelTypeStopWatch];
         measureTime.timeFormat = @"HH:mm:ss SS";
 
-        //实例化经纬度数组
+        //实例化经纬度数组、里程数组、测量数据数组
         self.locationArray = [[NSMutableArray alloc]init];
-        //实例化里程数组
         self.distanceArray = [[NSMutableArray alloc]init];
+        self.dataDetailArray = [[NSMutableArray alloc]init];
         
+        //设置显示数据的view样式
+        //self.sensorUIView.layer.cornerRadius = 8;//圆角
+        //self.sensorUIView.layer.masksToBounds = YES;//阴影
+        
+        self.mileageUIView.layer.borderWidth = 1;
+        self.mileageUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+        
+        self.speedUIView.layer.borderWidth = 1;
+        self.speedUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+        
+        self.aSpeedUIView.layer.borderWidth = 1;
+        self.aSpeedUIView.layer.borderColor =[[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+
+        self.sensorUIView.layer.borderWidth = 1;
+        self.sensorUIView.layer.borderColor =[[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+
+        self.altUIView.layer.borderWidth = 1;
+        self.altUIView.layer.borderColor =[[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+        
+        self.spareUIView.layer.borderWidth = 1;
+        self.spareUIView.layer.borderColor =[[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+
     }
     
 }
@@ -252,7 +280,7 @@
 - (void)startTimer{
     self.t = 1.0;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:(self.t) target:self selector:@selector(dataMeasure) userInfo:nil repeats:YES];
-    self.sensorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / 10.0 target:self  selector:@selector(useAccelermeterAndGyro) userInfo:nil repeats:YES];
+    //self.sensorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / 10.0 target:self  selector:@selector(useAccelermeterAndGyro) userInfo:nil repeats:YES];
 }
 
 //暂停定时器
@@ -351,6 +379,16 @@
         self.altitudeLable.text = [[NSString alloc]initWithFormat:@"%.2f",self.locationManager.location.altitude];
         
         NSLog(@"距离%f  速度%f 平均速度%f 总路程 %f 总时间 %d", distance , self.speed, self.avgSpeed, self.sumDistance, self.timeInterval);
+        
+        //每次得到的数据都保存到数组当中
+        NSNumber *secID = [[NSNumber alloc]initWithDouble:self.timeInterval];
+        NSNumber *speed = [[NSNumber alloc]initWithDouble:self.speed*60*60/1000];
+        NSNumber *alt = [[NSNumber alloc]initWithDouble:self.locationManager.location.altitude];
+
+        
+        NSArray *dataTmp = [[NSArray alloc]initWithObjects:secID,lat1,log1,speed,alt,nil];
+        [self.dataDetailArray addObject:dataTmp];
+        NSLog(@"保存在数组当中的数据：%@",self.dataDetailArray);
         
     }else{
         NSLog(@"仅有一个点，无法测距");

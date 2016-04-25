@@ -32,31 +32,70 @@
     return self;
 }
 
+//#pragma mark 建表
+//-(BOOL)createTableWithSql:(const char *)sql_stmt{
+//    BOOL isSuccess = YES;
+//    //检查数据库文件是否已经存在
+//    NSString *destinationPath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
+//    NSLog(@"path:%@",destinationPath);
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
+//        sqlite3 *database = nil;
+//        const char *dbpath = [destinationPath UTF8String];
+//        if (sqlite3_open(dbpath, &database) == SQLITE_OK){
+//            char *errMsg;
+//            //
+//            //const char *csql =[sql_stmt UTF8String];
+//            
+//            if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg)
+//                != SQLITE_OK)
+//            {
+//                isSuccess = NO;
+//                NSLog(@"Failed to create table");
+//            }
+//            sqlite3_close(database);
+//        }else{
+//            isSuccess = NO;
+//            NSLog(@"Failed to open/create table");
+//        }
+//    }
+//    return isSuccess;
+//}
+
 #pragma mark 建表
--(BOOL)createTableWithSql:(const char *)sql_stmt{
-    BOOL isSuccess = YES;
+-(void)createTable{
+  
     //检查数据库文件是否已经存在
     NSString *destinationPath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
     NSLog(@"path:%@",destinationPath);
-    if (![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
         sqlite3 *database = nil;
         const char *dbpath = [destinationPath UTF8String];
-        if (sqlite3_open(dbpath, &database) == SQLITE_OK){
+        if (sqlite3_open(dbpath, &database) != SQLITE_OK){
+            sqlite3_close(database);
+            NSAssert(NO,@"数据库打开失败");
+        }else{
             char *errMsg;
-            if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg)
-                != SQLITE_OK)
-            {
-                isSuccess = NO;
-                NSLog(@"Failed to create table");
+            NSString *sql1 = [NSString stringWithFormat:@"CREATE TABLE roadData(roadInfoID integer, roadname text, datetime text, info text);"];
+            NSString *sql2 = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS dataDetail(roadInfoID integer,secID integer,lat text,lng text,speed text,altitude text,sensordata text);"];
+            
+            //删除表
+            //NSString *sql1 = [NSString stringWithFormat:@"DROP TABLE roadData"];
+            
+            const char *cSql1 = [sql1 UTF8String];
+            const char *cSql2 = [sql2 UTF8String];
+            if (sqlite3_exec(database, cSql1, NULL, NULL, &errMsg)!= SQLITE_OK && sqlite3_exec(database, cSql2, NULL, NULL, &errMsg)!= SQLITE_OK){
+                sqlite3_close(database);
+                NSAssert(NO,@"建表失败");
+            }else{
+                NSLog(@"建表成功");
             }
             sqlite3_close(database);
-        }else{
-            isSuccess = NO;
-            NSLog(@"Failed to open/create table");
-        }
+
+            }
+        
     }
-    return isSuccess;
-}
+   
+//}
 
 #pragma mark 执行sql语句
 -(void)runQuery:(const char *)query isQueryExecutable:(BOOL)queryExecutable{
