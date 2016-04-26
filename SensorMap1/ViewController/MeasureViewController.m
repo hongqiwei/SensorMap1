@@ -334,7 +334,7 @@
 //                      [NSArray arrayWithObjects:@"javascript",@"xml",@"html",@"cocos2D",@"u3d",@"sjjg", nil],nil];
 //    NSLog(@"数组实例：%@",[[array objectAtIndex:1] objectAtIndex:2]);
 
-    if (self.locationArray.count>2) {
+    if (self.locationArray.count>1) {
         
         NSString *lat1 = [[NSString alloc]initWithFormat:@"%@",[[self.locationArray lastObject] firstObject]];
         NSLog(@"最后一个坐标的纬度：%@",lat1);

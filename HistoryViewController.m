@@ -16,6 +16,7 @@
 
 @property (nonatomic,strong) DBManager *dbManager;
 @property (nonatomic, strong) NSArray *arrRoadData;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableMain;
 
 @end
@@ -90,6 +91,20 @@
 //    nvc.recordIDToEdit = [[[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:0] intValue];
 //    [self.navigationController pushViewController:nvc animated:self];
 //}
+
+#pragma mark 点击cell进行页面跳转
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *a = [[self.arrRoadData objectAtIndex:indexPath.row]objectAtIndex:0];
+    NSString *b = [[self.arrRoadData objectAtIndex:indexPath.row]objectAtIndex:1];
+    NSLog(@"a= %@, b=%@",a,b);
+    NSString *query = [NSString stringWithFormat:@"select * from dataDetail where roadInfoID = %@",a];
+    if (self.arryDetailData != nil) {
+        self.arryDetailData = nil;
+    }
+    self.arryDetailData= [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+    NSLog(@"详细数据：%@",self.arryDetailData);
+}
 
 #pragma mark 滑动删除数据
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

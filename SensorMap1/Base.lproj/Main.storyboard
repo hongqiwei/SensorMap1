@@ -420,6 +420,9 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
+                    <connections>
+                        <outlet property="mapView" destination="Jzx-pK-2tM" id="Ah3-Pl-rSU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qud-ga-1DA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

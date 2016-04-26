@@ -34,9 +34,6 @@
 
 - (IBAction)saveButton1:(id)sender{
     
-//    NSString *query = [NSString stringWithFormat:@"insert into basicData values('%@',null,'%@')",self.annotionTitleTextField.text,self.annotionSubTitleTextView.text];
-//    [self.dbManager insterRecord:query];
-    
     //获取系统时间(和北京时间有八个小时的时差);
     NSDate *date = [NSDate date];
     //设置转换后的目标日期时区
@@ -51,7 +48,7 @@
     NSTimeInterval sjc = [[NSDate date] timeIntervalSince1970] ;
     
     NSString *query;
-    query = [NSString stringWithFormat:@"insert into roadData values(%f, '%@', '%@', %@)",sjc, self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text];
+    query = [NSString stringWithFormat:@"insert into roadData values(%.3f, '%@', '%@', %@)",sjc, self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text];
     //执行sql语句
     [self.dbManager executeQuery:query];
     if (self.dbManager.affectedRows != 0) {
@@ -83,7 +80,7 @@
         NSString *speedTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:3]];
         NSString *altTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:4]];
         
-        query1 = [NSString stringWithFormat:@"insert into dataDetail values(%f,'%@','%@','%@','%@','%@',null)",sjc,secIdTMP,latTMP,lngTMP,speedTMP,altTMP];
+        query1 = [NSString stringWithFormat:@"insert into dataDetail values(%.3f,'%@','%@','%@','%@','%@',null)",sjc,secIdTMP,latTMP,lngTMP,speedTMP,altTMP];
         //执行sql语句
         [self.dbManager executeQuery:query1];
         if (self.dbManager.affectedRows != 0) {
@@ -97,19 +94,7 @@
 
 }
 
-////多页面传属性
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    
-//    if([segue.identifier isEqualToString:@"saveBiaoZhu"]){
-//        
-//        MeasureViewController *measureVC = (MeasureViewController *)[segue destinationViewController];
-//        measureVC.aTitle1 = [[NSString alloc] initWithFormat:@"%@",self.annotionTitleTextField.text];
-//        measureVC.aSubTitle1 = [[NSString alloc] initWithFormat:@"%@",self.annotionSubTitleTextView.text];
-//        
-//    }else if([segue.identifier isEqualToString:@""]){
-//        
-//    }
-//}
+
 
 
 @end

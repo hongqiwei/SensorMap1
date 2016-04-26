@@ -10,4 +10,6 @@
 
 @interface HistoryViewController : UIViewController
 
+@property(nonatomic,strong) NSArray *arryDetailData;
+
 @end
