@@ -63,7 +63,7 @@
     
     int a = 666;
     NSString *query;
-    query = [NSString stringWithFormat:@"insert into roadData values(%.3f, '%@', '%@', %@, %d, %.2f, %.2f,%.2f,%d)",sjc, self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text,measureVC.timeInterval,measureVC.sumDistance,self.aAlt/measureVC.timeInterval,measureVC.avgSpeed,a];
+    query = [NSString stringWithFormat:@"insert into roadData values(%.3f, '%@', '%@', %@, %d, %.2f, %.2f,%.2f,%d)",sjc, self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text,measureVC.timeInterval,measureVC.sumDistance/1000,self.aAlt/measureVC.timeInterval,measureVC.avgSpeed*3.6,a];
     //执行sql语句
     [self.dbManager executeQuery:query];
     if (self.dbManager.affectedRows != 0) {

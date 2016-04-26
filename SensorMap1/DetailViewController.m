@@ -23,6 +23,11 @@
 
 -(void)viewDidLoad{
     
+    self.mapView.mapType = MKMapTypeStandard;
+    self.mapView.delegate = self;
+    //显示比例尺
+    self.mapView.showsScale = YES;
+    
     [self showLine];
     [self showData];
     
@@ -50,6 +55,26 @@
     self.altUIView.layer.masksToBounds = YES;//阴影
     self.altUIView.layer.borderWidth = 1;
     self.altUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+    
+    //构造折线数据对象
+    CLLocationCoordinate2D commonPolylineCoords[4];
+    commonPolylineCoords[0].latitude = 39.832136;
+    commonPolylineCoords[0].longitude = 116.34095;
+    
+    commonPolylineCoords[1].latitude = 39.832136;
+    commonPolylineCoords[1].longitude = 116.42095;
+    
+    commonPolylineCoords[2].latitude = 39.902136;
+    commonPolylineCoords[2].longitude = 116.42095;
+    
+    commonPolylineCoords[3].latitude = 39.902136;
+    commonPolylineCoords[3].longitude = 116.44095;
+    
+    //构造折线对象
+    MKPolyline *commonPolyline = [MKPolyline polylineWithCoordinates:commonPolylineCoords count:4];
+    
+    //在地图上添加折线对象
+    [_mapView addOverlay: commonPolyline];
     
 }
 
@@ -112,9 +137,38 @@
         //在地图上添加折线对象
         [_mapView addOverlay: commonPolyline];
         
+//        //添加大头针位置
+//        MKPointAnnotation *addAnnotation1 = [[MKPointAnnotation alloc]init];
+//        addAnnotation1.coordinate = CLLocationCoordinate2DMake(centerMars.latitude, centerMars.longitude);
+//        
+//        addAnnotation1.title = @"haha";
+//        //[[NSString alloc]initWithFormat:@"%@",self.aTitle1];
+//        addAnnotation1.subtitle = @"hehe";
+//        //[[NSString alloc]initWithFormat:@"%@",self.aSubTitle1];
+//        [_mapView addAnnotation:addAnnotation1];
+        
     }
 
 }
+
+//地图Overlay代理
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay{
+    if ([overlay isKindOfClass:[MKPolyline class]])
+    {
+        MKPolylineRenderer *polylineView =[[MKPolylineRenderer alloc] initWithOverlay:overlay];
+        //MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+        
+        polylineView.lineWidth = 2.f;
+        polylineView.strokeColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.6];
+        polylineView.lineJoin = kCGLineJoinRound;//连接类型
+        polylineView.lineCap = kCGLineCapRound;//端点类型
+        
+        return polylineView;
+    }
+    return nil;
+}
+
+
 
 
 @end
