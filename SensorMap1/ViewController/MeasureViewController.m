@@ -65,6 +65,7 @@
     [self.locationManager startUpdatingLocation];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    self.navigationController.navigationBar.translucent = NO; 
     
 }
 
@@ -111,6 +112,14 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    //获取系统时间(和北京时间有八个小时的时差);
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *ymd=[formatter stringFromDate:date];
+    
+    NSLog(@"修改的时间格式是：%@", ymd);
     
     //初始化DBManager
     _dbManager = [[DBManager alloc] initWithDatabaseFilename:DBNAME];
@@ -438,6 +447,37 @@
         
         NSLog(@"得到的火星坐标：%f，%f",coord.latitude,coord.longitude);
     }
+    
+    /***经纬度反编码***/
+    //道路显示
+    CLLocation *c =[[CLLocation alloc] initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
+    
+    CLGeocoder *revGeo = [[CLGeocoder alloc] init];
+    //反地理编码
+    [revGeo  reverseGeocodeLocation:c completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (!error && [placemarks count] > 0)
+        {
+            // 显示最前面的地标信息
+            CLPlacemark *firstPlacemark=[placemarks firstObject];
+            
+            if (firstPlacemark.thoroughfare != NULL) {
+                
+                self.roadNameLable.text=[[NSString alloc]initWithFormat:@"%@",firstPlacemark.thoroughfare];
+                NSLog(@"道路名是:%@",firstPlacemark.thoroughfare);
+            }else{
+                self.roadNameLable.text=[[NSString alloc]initWithFormat:@"%@",firstPlacemark.name];
+                NSLog(@"建筑物名是：%@",firstPlacemark.name);
+            }
+            
+            _AnnotionTitle = [[NSString alloc]initWithFormat:@"%@",firstPlacemark.thoroughfare];
+            NSLog(@"annotiontitle:%@",self.AnnotionTitle);
+            
+            NSLog(@"roadName:%@",self.roadNameLable.text);
+        }else{
+            self.roadNameLable.text=@"没找到";
+            NSLog(@"ERROR: %@", error);
+        }
+    }];
 }
 
 

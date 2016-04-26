@@ -34,16 +34,20 @@
 
 - (IBAction)saveButton1:(id)sender{
     
-    //获取系统时间(和北京时间有八个小时的时差);
-    NSDate *date = [NSDate date];
-    //设置转换后的目标日期时区
-    NSTimeZone *zone = [NSTimeZone systemTimeZone];
-    //得到源日期与世界标准时间的偏移量
-    NSInteger interval = [zone secondsFromGMTForDate: date];
-    NSLog(@"interval = %lu", (long)interval);
-    //在当前时间基础上追加时区差值
-    date = [date dateByAddingTimeInterval:interval];
-    NSLog(@"%@", date);
+//    //设置转换后的目标日期时区
+//    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+//    //得到源日期与世界标准时间的偏移量
+//    NSInteger interval = [zone secondsFromGMTForDate: date];
+//    NSLog(@"interval = %lu", (long)interval);
+//    //在当前时间基础上追加时区差值
+//    date = [date dateByAddingTimeInterval:interval];
+//    NSLog(@"%@", date);
+    
+    NSDate *ymd = [NSDate date];
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *date=[formatter stringFromDate:ymd];
+    NSLog(@"修改的时间格式是：%@", date);
     
     NSTimeInterval sjc = [[NSDate date] timeIntervalSince1970] ;
     

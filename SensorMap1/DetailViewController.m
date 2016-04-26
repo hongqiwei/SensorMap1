@@ -25,6 +25,31 @@
     
     [self showLine];
     
+    self.mileageUIView.layer.cornerRadius = 8;//圆角
+    self.mileageUIView.layer.masksToBounds = YES;//阴影
+    self.mileageUIView.layer.borderWidth = 1;
+    self.mileageUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+    
+    self.sensorUIView.layer.cornerRadius = 8;//圆角
+    self.sensorUIView.layer.masksToBounds = YES;//阴影
+    self.sensorUIView.layer.borderWidth = 1;
+    self.sensorUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+
+    self.aSpeedUIView.layer.cornerRadius = 8;//圆角
+    self.aSpeedUIView.layer.masksToBounds = YES;//阴影
+    self.aSpeedUIView.layer.borderWidth = 1;
+    self.aSpeedUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+    
+    self.timeUIView.layer.cornerRadius = 8;//圆角
+    self.timeUIView.layer.masksToBounds = YES;//阴影
+    self.timeUIView.layer.borderWidth = 1;
+    self.timeUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+    
+    self.altUIView.layer.cornerRadius = 8;//圆角
+    self.altUIView.layer.masksToBounds = YES;//阴影
+    self.altUIView.layer.borderWidth = 1;
+    self.altUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
+    
 }
 
 //设置地图显示中心点 以及历史轨迹展示

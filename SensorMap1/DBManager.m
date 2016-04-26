@@ -80,6 +80,7 @@
             
             //删除表
             //NSString *sql1 = [NSString stringWithFormat:@"DROP TABLE roadData"];
+            //NSString *sql2 = [NSString stringWithFormat:@"DROP TABLE dataDetail"];
             
             const char *cSql1 = [sql1 UTF8String];
             const char *cSql2 = [sql2 UTF8String];

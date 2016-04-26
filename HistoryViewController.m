@@ -40,6 +40,7 @@
     [self loadData];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    self.navigationController.navigationBar.translucent = NO; 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -111,13 +112,18 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // 得到要删除数据的ID
-        int recordIDToDelete = [[[self.arrRoadData objectAtIndex:indexPath.row] objectAtIndex:0] intValue];
+        NSString *recordIDToDelete = [[self.arrRoadData objectAtIndex:indexPath.row] objectAtIndex:0];
+        
         
         // SQL语句
-        NSString *query = [NSString stringWithFormat:@"delete from roadData where roadInfoID=%d", recordIDToDelete];
+        NSString *query = [NSString stringWithFormat:@"delete from roadData where roadInfoID=%@", recordIDToDelete];
+        
+        NSString *c = [[self.arrRoadData objectAtIndex:indexPath.row]objectAtIndex:0];
+        NSString *query2 = [NSString stringWithFormat:@"delete from dataDetail where roadInfoID=%@",c];
         
         // 执行语句
         [self.dbManager executeQuery:query];
+        [self.dbManager executeQuery:query2];
         
         // 重新加载数据
         [self loadData];
