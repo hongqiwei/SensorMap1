@@ -15,8 +15,6 @@
 @interface HistoryViewController ()
 
 @property (nonatomic,strong) DBManager *dbManager;
-@property (nonatomic, strong) NSArray *arrRoadData;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableMain;
 
 @end
@@ -100,11 +98,18 @@
     NSString *b = [[self.arrRoadData objectAtIndex:indexPath.row]objectAtIndex:1];
     NSLog(@"a= %@, b=%@",a,b);
     NSString *query = [NSString stringWithFormat:@"select * from dataDetail where roadInfoID = %@",a];
+    NSString *query1 = [NSString stringWithFormat:@"select * from roadData where roadInfoID = %@",a];
     if (self.arryDetailData != nil) {
         self.arryDetailData = nil;
     }
+    if (self.arryBasicData != nil) {
+        self.arryBasicData = nil;
+    }
     self.arryDetailData= [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+    self.arryBasicData= [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query1]];
     NSLog(@"详细数据：%@",self.arryDetailData);
+    
+    
 }
 
 #pragma mark 滑动删除数据

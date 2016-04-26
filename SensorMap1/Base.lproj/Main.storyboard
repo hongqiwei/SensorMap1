@@ -378,10 +378,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jzx-pK-2tM">
-                                <rect key="frame" x="0.0" y="60" width="414" height="445"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="445"/>
                             </mapView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBT-YA-0d3">
-                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="614" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SMI-dz-Vsu">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
@@ -416,7 +416,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GrW-LM-6lc" userLabel="SensorUIView">
-                                <rect key="frame" x="5" y="552" width="139" height="81"/>
+                                <rect key="frame" x="5" y="490" width="139" height="81"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="💡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJ0-u1-Zoq">
                                         <rect key="frame" x="14" y="0.0" width="20" height="21"/>
@@ -440,7 +440,7 @@
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZdE-0T-OzU" userLabel="MileageUIView">
-                                <rect key="frame" x="146" y="544" width="130" height="30"/>
+                                <rect key="frame" x="146" y="482" width="130" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🚩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izr-aW-FZ3">
                                         <rect key="frame" x="8" y="9" width="20" height="17"/>
@@ -464,7 +464,7 @@
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E3m-hO-15U" userLabel="aSpeedUIView">
-                                <rect key="frame" x="147" y="610" width="130" height="30"/>
+                                <rect key="frame" x="147" y="548" width="130" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🕰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS1-7g-0i0">
                                         <rect key="frame" x="8" y="9" width="20" height="17"/>
@@ -488,7 +488,7 @@
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3MI-kv-5b4" userLabel="TimeUIView">
-                                <rect key="frame" x="280" y="544" width="130" height="30"/>
+                                <rect key="frame" x="280" y="482" width="130" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="⏱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHI-9g-L7s">
                                         <rect key="frame" x="8" y="9" width="20" height="17"/>
@@ -512,7 +512,7 @@
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvc-TZ-3FM" userLabel="AltUIView">
-                                <rect key="frame" x="280" y="610" width="130" height="30"/>
+                                <rect key="frame" x="280" y="548" width="130" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🛩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGB-ie-mEp">
                                         <rect key="frame" x="8" y="9" width="20" height="17"/>
@@ -541,11 +541,16 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
+                        <outlet property="aAltLable" destination="xdc-zK-sdq" id="nZI-pK-B74"/>
+                        <outlet property="aSpeedLable" destination="7zo-YF-cK0" id="HyD-hs-QZz"/>
                         <outlet property="aSpeedUIView" destination="E3m-hO-15U" id="1SH-vb-pSj"/>
                         <outlet property="altUIView" destination="wvc-TZ-3FM" id="fGA-bV-qr7"/>
                         <outlet property="mapView" destination="Jzx-pK-2tM" id="Ah3-Pl-rSU"/>
+                        <outlet property="mileageLable" destination="zna-Te-ofB" id="G0D-eE-a35"/>
                         <outlet property="mileageUIView" destination="ZdE-0T-OzU" id="1Ay-le-5RP"/>
+                        <outlet property="sensorLable" destination="cGu-Qb-bKB" id="W7l-vs-rX8"/>
                         <outlet property="sensorUIView" destination="GrW-LM-6lc" id="gn1-fo-Ip7"/>
+                        <outlet property="timeLable" destination="yyS-Ea-CCG" id="vxw-a8-CG9"/>
                         <outlet property="timeUIView" destination="3MI-kv-5b4" id="2uH-Jn-PMm"/>
                     </connections>
                 </viewController>
@@ -633,8 +638,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7z5-FG-8j2">
+                                <rect key="frame" x="0.0" y="339" width="414" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="saveButton1:" destination="GPa-ty-NVm" eventType="touchUpInside" id="peK-Ei-uqO"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SB8-5R-QYj">
-                                <rect key="frame" x="0.0" y="59" width="414" height="230"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zMe-zq-ZF2">
                                         <rect key="frame" x="0.0" y="-61" width="414" height="23"/>
@@ -666,16 +681,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7z5-FG-8j2">
-                                <rect key="frame" x="0.0" y="339" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="保存"/>
-                                <connections>
-                                    <action selector="saveButton1:" destination="GPa-ty-NVm" eventType="touchUpInside" id="peK-Ei-uqO"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

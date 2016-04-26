@@ -75,12 +75,12 @@
             NSAssert(NO,@"数据库打开失败");
         }else{
             char *errMsg;
-            NSString *sql1 = [NSString stringWithFormat:@"CREATE TABLE roadData(roadInfoID integer, roadname text, datetime text, info text);"];
+            NSString *sql1 = [NSString stringWithFormat:@"CREATE TABLE roadData(roadInfoID integer, roadname text, datetime text, info text,duration integer,sumDistance text,aAlt folat,aSpeed float,sensorData text);"];
             NSString *sql2 = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS dataDetail(roadInfoID integer,secID integer,lat text,lng text,speed text,altitude text,sensordata text);"];
             
             //删除表
-            //NSString *sql1 = [NSString stringWithFormat:@"DROP TABLE roadData"];
-            //NSString *sql2 = [NSString stringWithFormat:@"DROP TABLE dataDetail"];
+//            NSString *sql1 = [NSString stringWithFormat:@"DROP TABLE roadData"];
+//            NSString *sql2 = [NSString stringWithFormat:@"DROP TABLE dataDetail"];
             
             const char *cSql1 = [sql1 UTF8String];
             const char *cSql2 = [sql2 UTF8String];

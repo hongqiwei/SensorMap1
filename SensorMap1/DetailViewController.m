@@ -24,6 +24,7 @@
 -(void)viewDidLoad{
     
     [self showLine];
+    [self showData];
     
     self.mileageUIView.layer.cornerRadius = 8;//圆角
     self.mileageUIView.layer.masksToBounds = YES;//阴影
@@ -50,6 +51,18 @@
     self.altUIView.layer.borderWidth = 1;
     self.altUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
     
+}
+
+//显示数据
+-(void)showData{
+    HistoryViewController *historyVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+    
+    self.sensorLable.text = [NSString stringWithFormat:@"%@",[[historyVC.arryBasicData objectAtIndex:0] objectAtIndex:8]];
+    NSLog(@"显示信息：%@",self.sensorLable.text);
+    self.mileageLable.text = [NSString stringWithFormat:@"%@",[[historyVC.arryBasicData objectAtIndex:0] objectAtIndex:5]];
+    self.timeLable.text = [NSString stringWithFormat:@"%@",[[historyVC.arryBasicData objectAtIndex:0] objectAtIndex:4]];
+    self.aAltLable.text = [NSString stringWithFormat:@"%@",[[historyVC.arryBasicData objectAtIndex:0] objectAtIndex:6]];
+    self.aSpeedLable.text = [NSString stringWithFormat:@"%@",[[historyVC.arryBasicData objectAtIndex:0] objectAtIndex:7]];
 }
 
 //设置地图显示中心点 以及历史轨迹展示

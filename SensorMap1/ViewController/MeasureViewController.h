@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MZTimerLabel.h"
+#import <MapKit/MapKit.h>
+#import <MapKit/MKPlacemark.h>
+#import <CoreLocation/CoreLocation.h>
+#import <UIKit/UIKit.h>
+#import "AddAnnotationViewController.h"
+#import "WGS84TOGCJ02.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface MeasureViewController : UIViewController<MZTimerLabelDelegate>{
     MZTimerLabel *measureTime;
@@ -37,5 +44,11 @@
 @property (weak, nonatomic) IBOutlet UIView *aSpeedUIView;
 @property (weak, nonatomic) IBOutlet UIView *altUIView;
 @property (weak, nonatomic) IBOutlet UIView *spareUIView;
+
+
+// 总路程
+@property (nonatomic, assign) CLLocationDistance  sumDistance;
+@property (nonatomic) int timeInterval;
+@property (nonatomic) CGFloat avgSpeed;
 
 @end

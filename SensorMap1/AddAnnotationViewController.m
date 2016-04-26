@@ -13,6 +13,8 @@
 
 @property (strong,nonatomic)DBManager *dbManager;
 
+@property(nonatomic)float aAlt;
+
 @end
 
 @implementation AddAnnotationViewController
@@ -34,6 +36,8 @@
 
 - (IBAction)saveButton1:(id)sender{
     
+    MeasureViewController *measureVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+    
 //    //设置转换后的目标日期时区
 //    NSTimeZone *zone = [NSTimeZone systemTimeZone];
 //    //得到源日期与世界标准时间的偏移量
@@ -51,8 +55,15 @@
     
     NSTimeInterval sjc = [[NSDate date] timeIntervalSince1970] ;
     
+    //roadInfoID integer, roadname text, datetime text, info text,duration integer,sumDistance text,aAlt folat,aSpeed float,sensorData text
+    for (int x=0; x<measureVC.dataDetailArray.count; x++) {
+        NSNumber *tmp= [[measureVC.dataDetailArray objectAtIndex:x]objectAtIndex:4];
+        self.aAlt= [tmp floatValue] + self.aAlt;
+    }
+    
+    int a = 666;
     NSString *query;
-    query = [NSString stringWithFormat:@"insert into roadData values(%.3f, '%@', '%@', %@)",sjc, self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text];
+    query = [NSString stringWithFormat:@"insert into roadData values(%.3f, '%@', '%@', %@, %d, %.2f, %.2f,%.2f,%d)",sjc, self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text,measureVC.timeInterval,measureVC.sumDistance,self.aAlt/measureVC.timeInterval,measureVC.avgSpeed,a];
     //执行sql语句
     [self.dbManager executeQuery:query];
     if (self.dbManager.affectedRows != 0) {
@@ -62,7 +73,7 @@
         NSLog(@"Could not execute the query.");
     }
     
-    MeasureViewController *measureVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+    
     
     measureVC.aTitle1 = [[NSString alloc]initWithFormat:@"%@",self.annotionTitleTextField.text];
     measureVC.aSubTitle1 = [[NSString alloc]initWithFormat:@"%@",self.annotionSubTitleTextView.text];

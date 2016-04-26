@@ -7,13 +7,7 @@
 //
 
 #import "MeasureViewController.h"
-#import <MapKit/MapKit.h>
-#import <MapKit/MKPlacemark.h>
-#import <CoreLocation/CoreLocation.h>
-#import <UIKit/UIKit.h>
-#import "AddAnnotationViewController.h"
-#import "WGS84TOGCJ02.h"
-#import <CoreMotion/CoreMotion.h>
+
 
 #define DBNAME    @"myDB.sqlite"
 
@@ -31,8 +25,7 @@
 @property(strong,nonatomic)NSTimer *sensorTimer;
 // 上一次的位置
 @property (nonatomic, strong) CLLocation *previousLocation;
-// 总路程
-@property (nonatomic, assign) CLLocationDistance  sumDistance;
+
 // 总时间
 @property (nonatomic, assign) NSTimeInterval  sumTime;
 
@@ -47,9 +40,9 @@
 
 @property (nonatomic) double distance;
 @property (nonatomic) int t;
-@property (nonatomic) int timeInterval;
+
 @property (nonatomic) CGFloat speed;
-@property (nonatomic) CGFloat avgSpeed;
+
 
 @property (nonatomic,strong) DBManager *dbManager;
 

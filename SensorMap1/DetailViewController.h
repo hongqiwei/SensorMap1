@@ -15,5 +15,10 @@
 @property (weak, nonatomic) IBOutlet UIView *aSpeedUIView;
 @property (weak, nonatomic) IBOutlet UIView *timeUIView;
 @property (weak, nonatomic) IBOutlet UIView *altUIView;
+@property (weak, nonatomic) IBOutlet UILabel *sensorLable;
+@property (weak, nonatomic) IBOutlet UILabel *mileageLable;
+@property (weak, nonatomic) IBOutlet UILabel *timeLable;
+@property (weak, nonatomic) IBOutlet UILabel *aSpeedLable;
+@property (weak, nonatomic) IBOutlet UILabel *aAltLable;
 
 @end

@@ -10,6 +10,8 @@
 
 @interface HistoryViewController : UIViewController
 
+@property (nonatomic, strong) NSArray *arrRoadData;
 @property(nonatomic,strong) NSArray *arryDetailData;
+@property(nonatomic,strong) NSArray *arryBasicData;
 
 @end
