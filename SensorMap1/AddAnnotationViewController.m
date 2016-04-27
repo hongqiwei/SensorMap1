@@ -61,9 +61,8 @@
         self.aAlt= [tmp floatValue] + self.aAlt;
     }
     
-    int a = 666;
     NSString *query;
-    query = [NSString stringWithFormat:@"insert into roadData values(%.3f, '%@', '%@', %@, %d, %.2f, %.2f,%.2f,%d)",sjc, self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text,measureVC.timeInterval,measureVC.sumDistance/1000,self.aAlt/measureVC.timeInterval,measureVC.avgSpeed*3.6,a];
+    query = [NSString stringWithFormat:@"insert into roadData values(%.3f, '%@', '%@', %@, %d, %.2f, %.2f,%.2f,%.2f)",sjc, self.annotionTitleTextField.text, date, self.annotionSubTitleTextView.text,measureVC.timeInterval,measureVC.sumDistance/1000,self.aAlt/measureVC.timeInterval,measureVC.avgSpeed*3.6,measureVC.averageZ];
     //执行sql语句
     [self.dbManager executeQuery:query];
     if (self.dbManager.affectedRows != 0) {
@@ -94,8 +93,9 @@
         NSString *lngTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:2]];
         NSString *speedTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:3]];
         NSString *altTMP = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:4]];
+        NSString *accZTmp = [[NSString alloc]initWithFormat:@"%@",[[measureVC.dataDetailArray objectAtIndex:a]objectAtIndex:5]];
         
-        query1 = [NSString stringWithFormat:@"insert into dataDetail values(%.3f,'%@','%@','%@','%@','%@',null)",sjc,secIdTMP,latTMP,lngTMP,speedTMP,altTMP];
+        query1 = [NSString stringWithFormat:@"insert into dataDetail values(%.3f,'%@','%@','%@','%@','%@',%@)",sjc,secIdTMP,latTMP,lngTMP,speedTMP,altTMP,accZTmp];
         //执行sql语句
         [self.dbManager executeQuery:query1];
         if (self.dbManager.affectedRows != 0) {

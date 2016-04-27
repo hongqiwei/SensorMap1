@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *altitudeLable;
 @property (weak, nonatomic) IBOutlet UILabel *mSpeedLable;
 @property (weak, nonatomic) IBOutlet UILabel *aSpeedLable;
+@property (weak, nonatomic) IBOutlet UILabel *sensorLable;
 //定时器属性
 @property (strong,nonatomic) NSTimer *timer;
 @property(strong,nonatomic)NSTimer *sensorTimer;
@@ -282,7 +283,7 @@
 - (void)startTimer{
     self.t = 1.0;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:(self.t) target:self selector:@selector(dataMeasure) userInfo:nil repeats:YES];
-    //self.sensorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / 10.0 target:self  selector:@selector(useAccelermeterAndGyro) userInfo:nil repeats:YES];
+    //self.sensorTimer = [NSTimer scheduledTimerWithTimeInterval:(self.t) target:self  selector:@selector(useAccelermeterAndGyro) userInfo:nil repeats:YES];
 }
 
 //暂停定时器
@@ -324,6 +325,9 @@
 
 //数据测量方法
 - (void)dataMeasure{
+    
+    [self useAccelermeterAndGyro];
+    
     NSNumber *lat = [[NSNumber alloc]initWithDouble:self.locationManager.location.coordinate.latitude];
     NSNumber *lng = [[NSNumber alloc]initWithDouble:self.locationManager.location.coordinate.longitude];
     NSArray *locationCoordinate = [[NSArray alloc]initWithObjects:lat,lng, nil];
@@ -364,31 +368,32 @@
         //里程
         self.sumDistance += distance;
         self.mileageLable.text = [[NSString alloc] initWithFormat:@"%.2f",self.sumDistance/1000];
-        
         //测量总时间
         self.timeInterval = self.timeInterval + self.t;
-        
         //测量时速
         self.speed = distance/self.t ;
         //时速显示
         self.mSpeedLable.text = [[NSString alloc]initWithFormat:@"%.2f",self.speed*60*60/1000];
-        
         //测量均速
         self.avgSpeed = self.sumDistance / self.timeInterval ;
         self.aSpeedLable.text = [[NSString alloc]initWithFormat:@"%.2f",self.avgSpeed*60*60/1000];
-        
         //海拔显示
         self.altitudeLable.text = [[NSString alloc]initWithFormat:@"%.2f",self.locationManager.location.altitude];
-        
-        NSLog(@"距离%f  速度%f 平均速度%f 总路程 %f 总时间 %d", distance , self.speed, self.avgSpeed, self.sumDistance, self.timeInterval);
+        //传感显示以及传感平均值
+        NSLog(@"z的值为:%f",self.z);
+        self.sensorLable.text = [[NSString alloc]initWithFormat:@"%.2f",self.z];
+        self.sumZ +=self.z;
+        self.averageZ = self.sumZ/self.timeInterval;
+        //NSLog(@"距离%f  速度%f 平均速度%f 总路程 %f 总时间 %d", distance , self.speed, self.avgSpeed, self.sumDistance, self.timeInterval);
         
         //每次得到的数据都保存到数组当中
         NSNumber *secID = [[NSNumber alloc]initWithDouble:self.timeInterval];
         NSNumber *speed = [[NSNumber alloc]initWithDouble:self.speed*60*60/1000];
         NSNumber *alt = [[NSNumber alloc]initWithDouble:self.locationManager.location.altitude];
-
+        NSNumber *accZ = [[NSNumber alloc]initWithDouble:self.z];
+        NSLog(@"accZ的值为：%@",accZ);
         
-        NSArray *dataTmp = [[NSArray alloc]initWithObjects:secID,lat1,log1,speed,alt,nil];
+        NSArray *dataTmp = [[NSArray alloc]initWithObjects:secID,lat1,log1,speed,alt,accZ, nil];
         [self.dataDetailArray addObject:dataTmp];
         NSLog(@"保存在数组当中的数据：%@",self.dataDetailArray);
         
@@ -409,7 +414,11 @@
               accelerometerData.acceleration.x,
               accelerometerData.acceleration.y,
               accelerometerData.acceleration.z);
-        /**陀螺仪数据**/
+        self.z = 0;
+        self.z =  accelerometerData.acceleration.z;
+        NSLog(@"每秒Z方向偏移为：%.2f",self.z);
+/***
+        //陀螺仪数据
         //旋转角速度
         [_motionManager setDeviceMotionUpdateInterval:1/40.0];
         [_motionManager startDeviceMotionUpdates];
@@ -423,6 +432,7 @@
         double pitch = self.motionManager.deviceMotion.attitude.pitch;
         double yaw = self.motionManager.deviceMotion.attitude.yaw;
         NSLog(@"欧拉角数据\n roll:%f,pitch:%f,yaw:%f",roll,pitch,yaw);
+***/
     }
 }
 
@@ -596,7 +606,13 @@
 - (IBAction)markButtom:(id)sender{
     
     if (self.locationArray.count>10) {
-        [self performSegueWithIdentifier:@"second" sender:self];
+        if ([measureTime counting]) {
+            NSLog(@"请先停止测量");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"正在测量，无法完成标记" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+            [alert show];
+        }else{
+            [self performSegueWithIdentifier:@"second" sender:self];
+        }
     }else{
         NSLog(@"测量时间太短，无法完成标注");
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"测量时间太短，不能少于12s" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
@@ -613,7 +629,7 @@
         
             AddAnnotationViewController *addAnnotionVC = (AddAnnotationViewController *)[segue destinationViewController];
             addAnnotionVC.roadName = self.roadNameLable.text;
-            double tmp = self.locationManager.location.coordinate.latitude;
+            double tmp = self.averageZ;
             addAnnotionVC.roadData = [[NSNumber alloc]initWithDouble:tmp];
             
         }else if([segue.identifier isEqualToString:@"showBiaoZhu"]){

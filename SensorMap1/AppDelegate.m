@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SensorDataViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,10 @@
     // Override point for customization after application launch.
     //launchimage显示时间
     //sleep(3);
+    
+    
+    
+    
     return YES;
 }
 

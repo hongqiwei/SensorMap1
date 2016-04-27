@@ -19,6 +19,8 @@
 
 @end
 
+
+
 @implementation DetailViewController
 
 -(void)viewDidLoad{
@@ -93,6 +95,8 @@
 //设置地图显示中心点 以及历史轨迹展示
 -(void)showLine{
     HistoryViewController *historyVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+    
+    self.detailArray = historyVC.arryDetailData;
     //得到中点坐标
     NSString *centerLat = [[NSString alloc]initWithFormat:@"%@",[[historyVC.arryDetailData objectAtIndex:historyVC.arryDetailData.count/2]objectAtIndex:2]];
     NSString *centerLng = [[NSString alloc]initWithFormat:@"%@",[[historyVC.arryDetailData objectAtIndex:historyVC.arryDetailData.count/2]objectAtIndex:3]];
@@ -167,6 +171,8 @@
     }
     return nil;
 }
+
+
 
 
 

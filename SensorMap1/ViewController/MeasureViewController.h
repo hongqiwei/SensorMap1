@@ -50,5 +50,8 @@
 @property (nonatomic, assign) CLLocationDistance  sumDistance;
 @property (nonatomic) int timeInterval;
 @property (nonatomic) CGFloat avgSpeed;
+@property(nonatomic) CGFloat z;
+@property(nonatomic) CGFloat sumZ;
+@property(nonatomic) CGFloat averageZ;
 
 @end

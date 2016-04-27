@@ -28,6 +28,14 @@
 		4D4577001CBCD41800EEADDB /* EditAnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4576FF1CBCD41800EEADDB /* EditAnnotationViewController.m */; };
 		4D4577031CBCDD1E00EEADDB /* pen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D4577011CBCDD1E00EEADDB /* pen.png */; };
 		4D4577041CBCDD1E00EEADDB /* upcoming-work.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D4577021CBCDD1E00EEADDB /* upcoming-work.png */; };
+		4D553FC31CD0EBBD0020B36D /* DVLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D553FBC1CD0EBBD0020B36D /* DVLineChartView.m */; };
+		4D553FC41CD0EBBD0020B36D /* DVPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D553FBE1CD0EBBD0020B36D /* DVPlot.m */; };
+		4D553FC51CD0EBBD0020B36D /* DVXAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D553FC01CD0EBBD0020B36D /* DVXAxisView.m */; };
+		4D553FC61CD0EBBD0020B36D /* DVYAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D553FC21CD0EBBD0020B36D /* DVYAxisView.m */; };
+		4D553FC91CD0ED090020B36D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D553FC81CD0ED090020B36D /* UIView+Extension.m */; };
+		4D553FCC1CD0F15D0020B36D /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D553FCB1CD0F15D0020B36D /* UIColor+Hex.m */; };
+		4D94554F1CD0AB160001B08B /* SensorDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D94554E1CD0AB160001B08B /* SensorDataViewController.m */; };
+		4D9455511CD0B7610001B08B /* communication.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D9455501CD0B7610001B08B /* communication.png */; };
 		4DBF597B1CCF13D400E028AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF59791CCF13D400E028AA /* Main.storyboard */; };
 		4DD5D25D1CC88929003D50DF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD5D25C1CC88929003D50DF /* libsqlite3.tbd */; };
 		4DD5D2601CC88F30003D50DF /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5D25F1CC88F30003D50DF /* DBManager.m */; };
@@ -87,6 +95,21 @@
 		4D4576FF1CBCD41800EEADDB /* EditAnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAnnotationViewController.m; sourceTree = "<group>"; };
 		4D4577011CBCDD1E00EEADDB /* pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pen.png; sourceTree = "<group>"; };
 		4D4577021CBCDD1E00EEADDB /* upcoming-work.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upcoming-work.png"; sourceTree = "<group>"; };
+		4D553FBB1CD0EBBD0020B36D /* DVLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVLineChartView.h; sourceTree = "<group>"; };
+		4D553FBC1CD0EBBD0020B36D /* DVLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVLineChartView.m; sourceTree = "<group>"; };
+		4D553FBD1CD0EBBD0020B36D /* DVPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVPlot.h; sourceTree = "<group>"; };
+		4D553FBE1CD0EBBD0020B36D /* DVPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVPlot.m; sourceTree = "<group>"; };
+		4D553FBF1CD0EBBD0020B36D /* DVXAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVXAxisView.h; sourceTree = "<group>"; };
+		4D553FC01CD0EBBD0020B36D /* DVXAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVXAxisView.m; sourceTree = "<group>"; };
+		4D553FC11CD0EBBD0020B36D /* DVYAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYAxisView.h; sourceTree = "<group>"; };
+		4D553FC21CD0EBBD0020B36D /* DVYAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYAxisView.m; sourceTree = "<group>"; };
+		4D553FC71CD0ED090020B36D /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		4D553FC81CD0ED090020B36D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		4D553FCA1CD0F15D0020B36D /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		4D553FCB1CD0F15D0020B36D /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		4D94554D1CD0AB160001B08B /* SensorDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorDataViewController.h; sourceTree = "<group>"; };
+		4D94554E1CD0AB160001B08B /* SensorDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorDataViewController.m; sourceTree = "<group>"; };
+		4D9455501CD0B7610001B08B /* communication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = communication.png; sourceTree = "<group>"; };
 		4DBF597A1CCF13D400E028AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4DD5D25C1CC88929003D50DF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4DD5D25E1CC88F30003D50DF /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -154,6 +177,7 @@
 		4D1422941CBB36B0005D81C3 /* SensorMap1 */ = {
 			isa = PBXGroup;
 			children = (
+				4D553FBA1CD0EBA50020B36D /* lineChart */,
 				4DDB0B971CBE2D08004B511B /* MZTimerLabel */,
 				4D1422D41CBB866E005D81C3 /* image */,
 				4DD5D25E1CC88F30003D50DF /* DBManager.h */,
@@ -168,6 +192,8 @@
 				4D4576EE1CBCC70900EEADDB /* HistoryViewController.m */,
 				4D4576FB1CBCD3E000EEADDB /* DetailViewController.h */,
 				4D4576FC1CBCD3E000EEADDB /* DetailViewController.m */,
+				4D94554D1CD0AB160001B08B /* SensorDataViewController.h */,
+				4D94554E1CD0AB160001B08B /* SensorDataViewController.m */,
 				4D4576FE1CBCD41800EEADDB /* EditAnnotationViewController.h */,
 				4D4576FF1CBCD41800EEADDB /* EditAnnotationViewController.m */,
 				4D1422A41CBB36B0005D81C3 /* Assets.xcassets */,
@@ -212,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				4D4577011CBCDD1E00EEADDB /* pen.png */,
+				4D9455501CD0B7610001B08B /* communication.png */,
 				4D4577021CBCDD1E00EEADDB /* upcoming-work.png */,
 				4D4576F61CBCCEB500EEADDB /* attibutes.png */,
 				4D4576F41CBCCE8D00EEADDB /* search.png */,
@@ -219,6 +246,25 @@
 				4D1422D61CBB8758005D81C3 /* location_yes@2x.png */,
 			);
 			name = image;
+			sourceTree = "<group>";
+		};
+		4D553FBA1CD0EBA50020B36D /* lineChart */ = {
+			isa = PBXGroup;
+			children = (
+				4D553FBB1CD0EBBD0020B36D /* DVLineChartView.h */,
+				4D553FBC1CD0EBBD0020B36D /* DVLineChartView.m */,
+				4D553FBD1CD0EBBD0020B36D /* DVPlot.h */,
+				4D553FBE1CD0EBBD0020B36D /* DVPlot.m */,
+				4D553FBF1CD0EBBD0020B36D /* DVXAxisView.h */,
+				4D553FC01CD0EBBD0020B36D /* DVXAxisView.m */,
+				4D553FC11CD0EBBD0020B36D /* DVYAxisView.h */,
+				4D553FC21CD0EBBD0020B36D /* DVYAxisView.m */,
+				4D553FC71CD0ED090020B36D /* UIView+Extension.h */,
+				4D553FC81CD0ED090020B36D /* UIView+Extension.m */,
+				4D553FCA1CD0F15D0020B36D /* UIColor+Hex.h */,
+				4D553FCB1CD0F15D0020B36D /* UIColor+Hex.m */,
+			);
+			name = lineChart;
 			sourceTree = "<group>";
 		};
 		4DDB0B971CBE2D08004B511B /* MZTimerLabel */ = {
@@ -340,6 +386,7 @@
 				4D1422D71CBB8758005D81C3 /* location_no@2x.png in Resources */,
 				4DBF597B1CCF13D400E028AA /* Main.storyboard in Resources */,
 				4D1422D81CBB8758005D81C3 /* location_yes@2x.png in Resources */,
+				4D9455511CD0B7610001B08B /* communication.png in Resources */,
 				4D4576F71CBCCEB500EEADDB /* attibutes.png in Resources */,
 				4D1422A81CBB36B0005D81C3 /* LaunchScreen.storyboard in Resources */,
 				4D4577041CBCDD1E00EEADDB /* upcoming-work.png in Resources */,
@@ -372,14 +419,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1422CF1CBB3B59005D81C3 /* MeasureViewController.m in Sources */,
+				4D553FC51CD0EBBD0020B36D /* DVXAxisView.m in Sources */,
 				4DECD2531CC3BBC5002EE8CF /* WGS84TOGCJ02.m in Sources */,
 				4D4577001CBCD41800EEADDB /* EditAnnotationViewController.m in Sources */,
 				4D1422A31CBB36B0005D81C3 /* SensorMap1.xcdatamodeld in Sources */,
+				4D553FC91CD0ED090020B36D /* UIView+Extension.m in Sources */,
+				4D553FC31CD0EBBD0020B36D /* DVLineChartView.m in Sources */,
 				4D14229A1CBB36B0005D81C3 /* AppDelegate.m in Sources */,
+				4D553FC41CD0EBBD0020B36D /* DVPlot.m in Sources */,
 				4DDB0B9C1CBE2D08004B511B /* MZTimerLabel.m in Sources */,
 				4D4576FA1CBCD39000EEADDB /* AddAnnotationViewController.m in Sources */,
 				4DD5D2601CC88F30003D50DF /* DBManager.m in Sources */,
+				4D553FC61CD0EBBD0020B36D /* DVYAxisView.m in Sources */,
+				4D553FCC1CD0F15D0020B36D /* UIColor+Hex.m in Sources */,
 				4D4576EF1CBCC70A00EEADDB /* HistoryViewController.m in Sources */,
+				4D94554F1CD0AB160001B08B /* SensorDataViewController.m in Sources */,
 				4D1422971CBB36B0005D81C3 /* main.m in Sources */,
 				4D4576FD1CBCD3E000EEADDB /* DetailViewController.m in Sources */,
 			);

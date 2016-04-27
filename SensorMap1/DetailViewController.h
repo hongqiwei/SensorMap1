@@ -21,4 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *aSpeedLable;
 @property (weak, nonatomic) IBOutlet UILabel *aAltLable;
 
+@property(nonatomic,strong) NSArray *detailArray;
+
 @end
