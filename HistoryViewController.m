@@ -8,6 +8,7 @@
 
 #import "HistoryViewController.h"
 #import "AddAnnotationViewController.h"
+#import "MozTopAlertView.h"
 
 #define DBNAME    @"myDB.sqlite"
 //#define TABLENAME @"BASICTABLE"
@@ -31,6 +32,11 @@
     [self.dbManager createTable];
     //去除TableView多余横线
     [self setTableFooterView:_tableMain];
+    
+    self.searchResults = [[NSMutableArray alloc]init];
+    
+    self.searchBar.searchBarStyle =UISearchBarStyleMinimal;
+    self.searchBar.placeholder=@"搜索";
     
 }
 
@@ -152,5 +158,133 @@
     [tb setTableFooterView:view];
 }
 
+//- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+//    
+//    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", searchText];
+//    
+//    self.searchResults = [self.arrRoadData filteredArrayUsingPredicate:resultPredicate];
+//    NSLog(@"筛选内容：%@",self.searchResults);
+//}
+
+-(void)handleSearchForTerm:(NSString *)searchTerm{
+
+    
+    for (int n=0; n<self.arrRoadData.count; n++) {
+        NSString *str = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n] objectAtIndex:1]];
+        if ([str rangeOfString:searchTerm].location != NSNotFound) {
+            
+            //NSLog(@"找到啦！n=%d",n);
+            
+            //roadInfoID integer, roadname text, datetime text, info text,duration integer,sumDistance text,aAlt folat,aSpeed float,sensorData text
+            NSString *roadInfoID = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n]objectAtIndex:0]];
+            //NSLog(@"roadinfoid=%@",roadInfoID);
+            NSString *roadname = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n]objectAtIndex:1]];
+            NSString *datatime = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n]objectAtIndex:2]];
+            NSString *info = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n]objectAtIndex:3]];
+            NSString *duration = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n]objectAtIndex:4]];
+            NSString *sumDistance = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n]objectAtIndex:5]];
+            NSString *aAlt = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n]objectAtIndex:6]];
+            NSString *aSpeed = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n]objectAtIndex:7]];
+            NSString *sensorData = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n]objectAtIndex:8]];
+            
+            NSArray *dataTmp = [[NSArray alloc]initWithObjects:roadInfoID,roadname,datatime,info,duration,sumDistance,aAlt,aSpeed,sensorData, nil];
+            //NSLog(@"插入的数据：%@",dataTmp);
+            [self.searchResults addObject:dataTmp];
+
+        }else{
+            //NSLog(@"没找到！");
+            //[MozTopAlertView showWithType:MozAlertTypeInfo text:@"未找到相应数据" parentView:self.view];
+        }
+        
+    }
+    
+    if (self.searchResults.count != 0) {
+        //NSLog(@"找到的数据：%@",self.searchResults);
+        self.arrRoadData = self.searchResults;
+        
+        [self.tableMain reloadData];
+    }else{
+        [MozTopAlertView showWithType:MozAlertTypeInfo text:@"未找到相应数据" parentView:self.view];
+    }
+    
+    
+}
+
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    [_searchBar setShowsCancelButton:YES];
+    //将“cancel”改为“取消”
+    for(id cc in [searchBar.subviews[0] subviews])
+    {
+        if([cc isKindOfClass:[UIButton class]])
+        {
+            UIButton *btn = (UIButton *)cc;
+            [btn setTitle:@"取消" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        }
+    }
+
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+     [_searchBar setShowsCancelButton:YES];
+    
+    for(id cc in [searchBar.subviews[0] subviews])
+    {
+        if([cc isKindOfClass:[UIButton class]])
+        {
+            UIButton *btn = (UIButton *)cc;
+            [btn setTitle:@"取消" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
+        }
+    }
+
+    
+    //搜索条输入文字修改时触发
+    if([searchText length]==0)
+    {
+        //[_searchBar setShowsCancelButton:NO];
+        //如果无文字输入
+        [self loadData];
+        return;
+    }else{
+        //有文字输入就把关键字传给handleSearchForTerm处理
+        [self handleSearchForTerm:searchText];
+    }
+    
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    NSString *searchText = searchBar.text;
+    NSLog(@"点击了！");
+    
+    [self handleSearchForTerm:searchText];
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{//取消按钮被按下时触发
+    [self loadData];
+    [_searchBar setShowsCancelButton:NO];
+    //输入框清空
+    searchBar.text=@"";
+    //重新载入数据，隐藏软键盘
+    [self.searchBar resignFirstResponder];
+    
+}
+
+//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+//{
+//    for(id cc in [searchBar.subviews[0] subviews])
+//    {
+//        if([cc isKindOfClass:[UIButton class]])
+//        {
+//            UIButton *btn = (UIButton *)cc;
+//            [btn setTitle:@"取消" forState:UIControlStateNormal];
+//            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//        }
+//    }
+//}
 
 @end
