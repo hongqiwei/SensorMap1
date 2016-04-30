@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+
 
 @interface DetailViewController : UIViewController
+
 
 @property (weak, nonatomic) IBOutlet UIView *sensorUIView;
 @property (weak, nonatomic) IBOutlet UIView *mileageUIView;
@@ -22,5 +25,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *aAltLable;
 
 @property(nonatomic,strong) NSArray *detailArray;
+
+@property(strong,nonatomic) NSString *aTitle;
+@property(strong,nonatomic) NSString *aSubTitle;
+
+@property(strong,nonatomic)MKPointAnnotation *addAnnotation1;
+
+-(void)resetAnnotation;
 
 @end

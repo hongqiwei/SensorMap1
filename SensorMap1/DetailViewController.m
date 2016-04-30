@@ -30,6 +30,7 @@
     //显示比例尺
     self.mapView.showsScale = YES;
     
+    [self setAnnotation];
     [self showLine];
     [self showData];
     
@@ -141,15 +142,6 @@
         //在地图上添加折线对象
         [_mapView addOverlay: commonPolyline];
         
-//        //添加大头针位置
-//        MKPointAnnotation *addAnnotation1 = [[MKPointAnnotation alloc]init];
-//        addAnnotation1.coordinate = CLLocationCoordinate2DMake(centerMars.latitude, centerMars.longitude);
-//        
-//        addAnnotation1.title = @"haha";
-//        //[[NSString alloc]initWithFormat:@"%@",self.aTitle1];
-//        addAnnotation1.subtitle = @"hehe";
-//        //[[NSString alloc]initWithFormat:@"%@",self.aSubTitle1];
-//        [_mapView addAnnotation:addAnnotation1];
         
     }
 
@@ -172,6 +164,57 @@
     return nil;
 }
 
+-(void)setAnnotation{
+    HistoryViewController *historyVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+    
+    self.detailArray = historyVC.arryDetailData;
+    //得到中点坐标
+    NSString *centerLat = [[NSString alloc]initWithFormat:@"%@",[[historyVC.arryDetailData objectAtIndex:historyVC.arryDetailData.count/2]objectAtIndex:2]];
+    NSString *centerLng = [[NSString alloc]initWithFormat:@"%@",[[historyVC.arryDetailData objectAtIndex:historyVC.arryDetailData.count/2]objectAtIndex:3]];
+    //把得到的坐标变成coordinate格式
+    //CLLocationCoordinate2D centerLocation = CLLocationCoordinate2DMake([centerLat doubleValue], [centerLng doubleValue]);
+    CLLocation *centerEarth = [[CLLocation alloc] initWithLatitude:[centerLat doubleValue] longitude:[centerLng doubleValue]];
+    CLLocationCoordinate2D centerMars = [WGS84TOGCJ02 transformFromWGSToGCJ:[centerEarth coordinate]];
+    
+    //添加大头针位置
+    self.addAnnotation1 = [[MKPointAnnotation alloc]init];
+    self.addAnnotation1.coordinate = CLLocationCoordinate2DMake(centerMars.latitude, centerMars.longitude);
+    
+    self.aTitle = [[NSString alloc]initWithFormat:@"%@",[[historyVC.arryBasicData objectAtIndex:0]objectAtIndex:1]];
+    self.addAnnotation1.title = self.aTitle;
+    
+    self.aSubTitle = [[NSString alloc]initWithFormat:@"%@",[[historyVC.arryBasicData objectAtIndex:0]objectAtIndex:8]];
+    self.addAnnotation1.subtitle = self.aSubTitle;
+    
+    [_mapView addAnnotation:self.addAnnotation1];
+}
+
+-(void)resetAnnotation{
+    self.addAnnotation1.title = self.aTitle;
+    self.addAnnotation1.subtitle = self.aSubTitle;
+
+}
+
+//大头针属性设置
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MKPointAnnotation class]])
+    {
+        static NSString *pointReuseIndentifier = @"pointReuseIndentifier";
+        MKPinAnnotationView*annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentifier];
+        if (annotationView == nil)
+        {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentifier];
+        }
+        annotationView.canShowCallout= YES;       //设置气泡可以弹出，默认为NO
+        annotationView.animatesDrop = YES;        //设置标注动画显示，默认为NO
+        annotationView.draggable = YES;        //设置标注可以拖动，默认为NO
+        annotationView.opaque = NO;
+        annotationView.pinColor = MKPinAnnotationColorPurple;
+        return annotationView;
+    }
+    return nil;
+}
 
 
 

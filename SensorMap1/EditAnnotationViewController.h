@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface EditAnnotationViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *roadNameLable;
+@property (weak, nonatomic) IBOutlet UITextView *sensorLable;
+
+- (IBAction)saveButton:(id)sender;
 
 @end

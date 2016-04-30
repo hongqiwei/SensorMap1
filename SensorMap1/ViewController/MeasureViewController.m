@@ -381,8 +381,8 @@
         self.altitudeLable.text = [[NSString alloc]initWithFormat:@"%.2f",self.locationManager.location.altitude];
         //传感显示以及传感平均值
         NSLog(@"z的值为:%f",self.z);
-        self.sensorLable.text = [[NSString alloc]initWithFormat:@"%.2f",self.z];
-        self.sumZ +=self.z;
+        self.sensorLable.text = [[NSString alloc]initWithFormat:@"%.2f",pow(self.z+1,2)];
+        self.sumZ +=pow(self.z+1,2);
         self.averageZ = self.sumZ/self.timeInterval;
         //NSLog(@"距离%f  速度%f 平均速度%f 总路程 %f 总时间 %d", distance , self.speed, self.avgSpeed, self.sumDistance, self.timeInterval);
         
@@ -487,7 +487,6 @@
 
 //插入大头针
 - (void)setAnnotation{
-    
    
     //取出坐标数组的中间值
     NSString *lat3 = [[NSString alloc]initWithFormat:@"%@",[[self.locationArray objectAtIndex:self.locationArray.count/2]objectAtIndex:0]];
@@ -636,7 +635,6 @@
             
         }
         
-    
 }
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error{
