@@ -10,6 +10,7 @@
 #import "HistoryViewController.h"
 #import "DetailViewController.h"
 #import "DBManager.h"
+#import "MozTopAlertView.h"
 
 @interface EditAnnotationViewController()
 
@@ -53,7 +54,14 @@
     
     [detailVC resetAnnotation];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    if (YES) {
+        MozTopAlertView *alertView = [MozTopAlertView showWithType:MozAlertTypeSuccess text:@"Success" parentView:self.view];
+        alertView.dismissBlock = ^(){
+            NSLog(@"dismissBlock");
+            //[NSThread sleepForTimeInterval:1.0f];
+            [self.navigationController popViewControllerAnimated:YES];
+        };
+    }
     
 }
 @end

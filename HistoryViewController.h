@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSArray *arrRoadData;
 @property(nonatomic,strong) NSArray *arryDetailData;
 @property(nonatomic,strong) NSArray *arryBasicData;
+//@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 
 @end

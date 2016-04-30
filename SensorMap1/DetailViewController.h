@@ -31,6 +31,6 @@
 
 @property(strong,nonatomic)MKPointAnnotation *addAnnotation1;
 
--(void)resetAnnotation;
+-(BOOL)resetAnnotation;
 
 @end

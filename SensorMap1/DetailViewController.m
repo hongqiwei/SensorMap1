@@ -189,9 +189,11 @@
     [_mapView addAnnotation:self.addAnnotation1];
 }
 
--(void)resetAnnotation{
+-(BOOL)resetAnnotation{
     self.addAnnotation1.title = self.aTitle;
     self.addAnnotation1.subtitle = self.aSubTitle;
+    
+    return YES;
 
 }
 
