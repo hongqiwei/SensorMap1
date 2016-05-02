@@ -184,8 +184,8 @@
             dispatch_sync(dispatch_get_main_queue(), ^{
                // [self.indicatorView stopAnimating];
                 if(isLoginSucessed){
+                    [self performSegueWithIdentifier:@"isLogin" sender:self];
                     NSLog(@"login sucessed");
-                    //[self.navigationController popViewControllerAnimated:YES];
                 }else{
                     NSLog(@"login failed");
                     UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"用户名或密码错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

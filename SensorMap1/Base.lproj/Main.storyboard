@@ -913,11 +913,77 @@
                     <connections>
                         <outlet property="loginButton" destination="QOZ-V3-Nog" id="5Mh-4p-EGy"/>
                         <outlet property="registerButton" destination="C5Z-QJ-y7X" id="cp3-yN-0kQ"/>
+                        <segue destination="X6R-9g-qME" kind="show" identifier="isLogin" id="iFI-TC-5Sv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4i-S5-E8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939" y="1431"/>
+        </scene>
+        <!--Is Login View Controller-->
+        <scene sceneID="UbJ-Un-0NO">
+            <objects>
+                <viewController id="X6R-9g-qME" customClass="IsLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w8L-q5-iZq"/>
+                        <viewControllerLayoutGuide type="bottom" id="4j5-eS-hxt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lve-I1-76D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PP0-Ys-y7M">
+                                <rect key="frame" x="1" y="30" width="413" height="122"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="头像.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="6NC-fF-v0t">
+                                        <rect key="frame" x="20" y="10" width="100" height="100"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHx-5Y-MaV">
+                                <rect key="frame" x="0.0" y="370" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EE-d4-cj6">
+                                        <rect key="frame" x="192" y="10" width="30" height="30"/>
+                                        <state key="normal" title="退出"/>
+                                        <connections>
+                                            <action selector="quit:" destination="X6R-9g-qME" eventType="touchUpInside" id="n2Y-EP-Ic3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4M-o6-Cgb">
+                                <rect key="frame" x="0.0" y="200" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcI-zx-idH">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <state key="normal" title="社区"/>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pengyouquan.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yov-Vs-hp9">
+                                        <rect key="frame" x="15" y="10" width="32" height="32"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Next.png" translatesAutoresizingMaskIntoConstraints="NO" id="YIc-il-KfS">
+                                        <rect key="frame" x="376" y="12" width="20" height="25"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94961414703315883" green="0.94961414703315883" blue="0.94961414703315883" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="736"/>
+                    <connections>
+                        <outlet property="head_Icon" destination="6NC-fF-v0t" id="A4k-rW-jmg"/>
+                        <outlet property="quitButton" destination="2EE-d4-cj6" id="D9O-4V-gfP"/>
+                        <segue destination="HXU-Cn-yxA" kind="show" identifier="quit" id="tGg-Ds-DNx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bd1-Lm-vTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939" y="2380"/>
         </scene>
         <!--历史记录-->
         <scene sceneID="Rt2-Dm-Zt2">
@@ -959,11 +1025,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Next.png" width="17" height="30"/>
         <image name="attibutes.png" width="16" height="16"/>
         <image name="communication.png" width="16" height="16"/>
         <image name="pen.png" width="16" height="16"/>
+        <image name="pengyouquan.png" width="48" height="48"/>
         <image name="search.png" width="16" height="16"/>
         <image name="suppliers.png" width="16" height="16"/>
         <image name="upcoming-work.png" width="16" height="16"/>
+        <image name="头像.PNG" width="640" height="640"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tGg-Ds-DNx"/>
+    </inferredMetricsTieBreakers>
 </document>
