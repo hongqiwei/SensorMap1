@@ -884,12 +884,36 @@
                     <view key="view" contentMode="scaleToFill" id="xQ1-en-lIr" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOZ-V3-Nog">
+                                <rect key="frame" x="93" y="399" width="60" height="30"/>
+                                <state key="normal" title="登录">
+                                    <color key="titleColor" red="0.51900993545323892" green="0.19083716217335933" blue="0.086198515104446372" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickLogin:" destination="HXU-Cn-yxA" eventType="touchUpInside" id="fgh-pK-w28"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5Z-QJ-y7X">
+                                <rect key="frame" x="261" y="399" width="60" height="30"/>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" red="0.51900993549999996" green="0.19083716219999999" blue="0.086198515099999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickRegister:" destination="HXU-Cn-yxA" eventType="touchUpInside" id="7G7-1J-RRl"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <action selector="touchView:" destination="HXU-Cn-yxA" eventType="touchUpInside" id="Mag-df-ffa"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="lmb-l6-Dlk"/>
+                    <connections>
+                        <outlet property="loginButton" destination="QOZ-V3-Nog" id="5Mh-4p-EGy"/>
+                        <outlet property="registerButton" destination="C5Z-QJ-y7X" id="cp3-yN-0kQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4i-S5-E8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

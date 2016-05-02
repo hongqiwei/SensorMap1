@@ -18,5 +18,10 @@ typedef NS_ENUM(NSInteger, JxbLoginShowType) {
 @interface LoginViewController : UIViewController
 
 - (IBAction)touchView:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+- (IBAction)clickLogin:(id)sender;
+
+- (IBAction)clickRegister:(id)sender;
 
 @end

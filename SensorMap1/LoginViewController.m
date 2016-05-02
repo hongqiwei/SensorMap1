@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "LoginService.h"
 
 #define mainSize    [UIScreen mainScreen].bounds.size
 
@@ -105,6 +106,14 @@
     [txtPwd.leftView addSubview:imgPwd];
     [vLogin addSubview:txtPwd];
     
+    self.loginButton.layer.borderWidth = 2;
+    self.loginButton.layer.cornerRadius = 5;
+    self.loginButton.layer.borderColor =[[UIColor colorWithRed:0.51 green:0.24 blue:0.16 alpha:1]CGColor];
+    
+    self.registerButton.layer.borderWidth = 2;
+    self.registerButton.layer.cornerRadius = 5;
+    self.registerButton.layer.borderColor =[[UIColor colorWithRed:0.51 green:0.24 blue:0.16 alpha:1]CGColor];
+ 
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -151,10 +160,44 @@
     }
 }
 
-
+//点击屏幕其他地方隐藏键盘
 - (IBAction)touchView:(id)sender {
      [self.view endEditing:YES];
 }
 
+- (IBAction)clickLogin:(id)sender {
+    
+    NSString *username = txtUser.text;
+    NSString *password = txtPwd.text;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    //dispatch_queue_create("com.dispatch.serial", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(queue,^{
+        NSError *error = nil;
+       bool isLoginSucessed = [LoginService loginByUserName:username
+                                              AndPassword:password
+                                                       error:&error];
+        if(error){
+            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络或服务器错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alter show];
+        }else{
+            dispatch_sync(dispatch_get_main_queue(), ^{
+               // [self.indicatorView stopAnimating];
+                if(isLoginSucessed){
+                    NSLog(@"login sucessed");
+                    //[self.navigationController popViewControllerAnimated:YES];
+                }else{
+                    NSLog(@"login failed");
+                    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"用户名或密码错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alter show];
+                }
+            });
+        }
+    });
 
+    
+}
+
+- (IBAction)clickRegister:(id)sender {
+}
 @end

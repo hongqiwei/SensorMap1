@@ -10,6 +10,8 @@
 		4D081BE31CD7124C00D9772D /* suppliers.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D081BE21CD7124C00D9772D /* suppliers.png */; };
 		4D081BE51CD715A200D9772D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D081BE41CD715A200D9772D /* Images.xcassets */; };
 		4D081BE81CD715DA00D9772D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D081BE71CD715DA00D9772D /* LoginViewController.m */; };
+		4D081BEB1CD72ADC00D9772D /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D081BEA1CD72ADC00D9772D /* LoginService.m */; };
+		4D081BEE1CD72AEE00D9772D /* CallWebServiceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D081BED1CD72AEE00D9772D /* CallWebServiceUtil.m */; };
 		4D0909021CC4750C00853B2D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D0909011CC4750C00853B2D /* CoreMotion.framework */; };
 		4D0C58661CD49A2F0005FDFE /* MozTopAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C58651CD49A2F0005FDFE /* MozTopAlertView.m */; };
 		4D0C586E1CD49A410005FDFE /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C58681CD49A410005FDFE /* FAImageView.m */; };
@@ -74,6 +76,10 @@
 		4D081BE41CD715A200D9772D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4D081BE61CD715DA00D9772D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		4D081BE71CD715DA00D9772D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4D081BE91CD72ADC00D9772D /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginService.h; sourceTree = "<group>"; };
+		4D081BEA1CD72ADC00D9772D /* LoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginService.m; sourceTree = "<group>"; };
+		4D081BEC1CD72AEE00D9772D /* CallWebServiceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallWebServiceUtil.h; sourceTree = "<group>"; };
+		4D081BED1CD72AEE00D9772D /* CallWebServiceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallWebServiceUtil.m; sourceTree = "<group>"; };
 		4D0909011CC4750C00853B2D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		4D0C58641CD49A2F0005FDFE /* MozTopAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MozTopAlertView.h; sourceTree = "<group>"; };
 		4D0C58651CD49A2F0005FDFE /* MozTopAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MozTopAlertView.m; sourceTree = "<group>"; };
@@ -228,10 +234,14 @@
 				4D1422D41CBB866E005D81C3 /* image */,
 				4DD5D25E1CC88F30003D50DF /* DBManager.h */,
 				4DD5D25F1CC88F30003D50DF /* DBManager.m */,
-				4D1422CD1CBB3B59005D81C3 /* MeasureViewController.h */,
-				4D1422CE1CBB3B59005D81C3 /* MeasureViewController.m */,
 				4DECD2511CC3BBC5002EE8CF /* WGS84TOGCJ02.h */,
 				4DECD2521CC3BBC5002EE8CF /* WGS84TOGCJ02.m */,
+				4D081BEC1CD72AEE00D9772D /* CallWebServiceUtil.h */,
+				4D081BED1CD72AEE00D9772D /* CallWebServiceUtil.m */,
+				4D081BE91CD72ADC00D9772D /* LoginService.h */,
+				4D081BEA1CD72ADC00D9772D /* LoginService.m */,
+				4D1422CD1CBB3B59005D81C3 /* MeasureViewController.h */,
+				4D1422CE1CBB3B59005D81C3 /* MeasureViewController.m */,
 				4D4576F81CBCD39000EEADDB /* AddAnnotationViewController.h */,
 				4D4576F91CBCD39000EEADDB /* AddAnnotationViewController.m */,
 				4D4576ED1CBCC70900EEADDB /* HistoryViewController.h */,
@@ -479,6 +489,7 @@
 				4D1422A31CBB36B0005D81C3 /* SensorMap1.xcdatamodeld in Sources */,
 				4D553FC91CD0ED090020B36D /* UIView+Extension.m in Sources */,
 				4D553FC31CD0EBBD0020B36D /* DVLineChartView.m in Sources */,
+				4D081BEE1CD72AEE00D9772D /* CallWebServiceUtil.m in Sources */,
 				4D0C58661CD49A2F0005FDFE /* MozTopAlertView.m in Sources */,
 				4D14229A1CBB36B0005D81C3 /* AppDelegate.m in Sources */,
 				4D553FC41CD0EBBD0020B36D /* DVPlot.m in Sources */,
@@ -490,6 +501,7 @@
 				4D0C58711CD49A410005FDFE /* UIFont+FontAwesome.m in Sources */,
 				4D553FCC1CD0F15D0020B36D /* UIColor+Hex.m in Sources */,
 				4D4576EF1CBCC70A00EEADDB /* HistoryViewController.m in Sources */,
+				4D081BEB1CD72ADC00D9772D /* LoginService.m in Sources */,
 				4D94554F1CD0AB160001B08B /* SensorDataViewController.m in Sources */,
 				4D0C586E1CD49A410005FDFE /* FAImageView.m in Sources */,
 				4D1422971CBB36B0005D81C3 /* main.m in Sources */,

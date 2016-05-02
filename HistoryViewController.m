@@ -168,6 +168,12 @@
 
 -(void)handleSearchForTerm:(NSString *)searchTerm{
 
+    //初始化存储结果的array
+    if (self.searchResults != nil) {
+        [self.searchResults removeAllObjects];
+        self.searchResults = nil;
+    }
+    self.searchResults = [[NSMutableArray alloc] init];
     
     for (int n=0; n<self.arrRoadData.count; n++) {
         NSString *str = [[NSString alloc]initWithFormat:@"%@",[[self.arrRoadData objectAtIndex:n] objectAtIndex:1]];
@@ -255,13 +261,13 @@
     
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    
-    NSString *searchText = searchBar.text;
-    NSLog(@"点击了！");
-    
-    [self handleSearchForTerm:searchText];
-}
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+//    
+//    NSString *searchText = searchBar.text;
+//    NSLog(@"点击了！");
+//    
+//    [self handleSearchForTerm:searchText];
+//}
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {//取消按钮被按下时触发
