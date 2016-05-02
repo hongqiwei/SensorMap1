@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D081BE31CD7124C00D9772D /* suppliers.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D081BE21CD7124C00D9772D /* suppliers.png */; };
+		4D081BE51CD715A200D9772D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D081BE41CD715A200D9772D /* Images.xcassets */; };
+		4D081BE81CD715DA00D9772D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D081BE71CD715DA00D9772D /* LoginViewController.m */; };
 		4D0909021CC4750C00853B2D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D0909011CC4750C00853B2D /* CoreMotion.framework */; };
 		4D0C58661CD49A2F0005FDFE /* MozTopAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C58651CD49A2F0005FDFE /* MozTopAlertView.m */; };
 		4D0C586E1CD49A410005FDFE /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C58681CD49A410005FDFE /* FAImageView.m */; };
@@ -67,6 +70,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D081BE21CD7124C00D9772D /* suppliers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suppliers.png; sourceTree = "<group>"; };
+		4D081BE41CD715A200D9772D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4D081BE61CD715DA00D9772D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4D081BE71CD715DA00D9772D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		4D0909011CC4750C00853B2D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		4D0C58641CD49A2F0005FDFE /* MozTopAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MozTopAlertView.h; sourceTree = "<group>"; };
 		4D0C58651CD49A2F0005FDFE /* MozTopAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MozTopAlertView.m; sourceTree = "<group>"; };
@@ -235,6 +242,9 @@
 				4D94554E1CD0AB160001B08B /* SensorDataViewController.m */,
 				4D4576FE1CBCD41800EEADDB /* EditAnnotationViewController.h */,
 				4D4576FF1CBCD41800EEADDB /* EditAnnotationViewController.m */,
+				4D081BE61CD715DA00D9772D /* LoginViewController.h */,
+				4D081BE71CD715DA00D9772D /* LoginViewController.m */,
+				4D081BE41CD715A200D9772D /* Images.xcassets */,
 				4D1422A41CBB36B0005D81C3 /* Assets.xcassets */,
 				4DBF59791CCF13D400E028AA /* Main.storyboard */,
 				4D1422A61CBB36B0005D81C3 /* LaunchScreen.storyboard */,
@@ -276,6 +286,7 @@
 		4D1422D41CBB866E005D81C3 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				4D081BE21CD7124C00D9772D /* suppliers.png */,
 				4D4577011CBCDD1E00EEADDB /* pen.png */,
 				4D9455501CD0B7610001B08B /* communication.png */,
 				4D4577021CBCDD1E00EEADDB /* upcoming-work.png */,
@@ -431,9 +442,11 @@
 				4D4577041CBCDD1E00EEADDB /* upcoming-work.png in Resources */,
 				4D4576F51CBCCE8D00EEADDB /* search.png in Resources */,
 				4D4577031CBCDD1E00EEADDB /* pen.png in Resources */,
+				4D081BE51CD715A200D9772D /* Images.xcassets in Resources */,
 				4D1422A51CBB36B0005D81C3 /* Assets.xcassets in Resources */,
 				4DDB0B9B1CBE2D08004B511B /* Info.plist in Resources */,
 				4D0C586F1CD49A410005FDFE /* FontAwesome.ttf in Resources */,
+				4D081BE31CD7124C00D9772D /* suppliers.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1422CF1CBB3B59005D81C3 /* MeasureViewController.m in Sources */,
+				4D081BE81CD715DA00D9772D /* LoginViewController.m in Sources */,
 				4D553FC51CD0EBBD0020B36D /* DVXAxisView.m in Sources */,
 				4DECD2531CC3BBC5002EE8CF /* WGS84TOGCJ02.m in Sources */,
 				4D4577001CBCD41800EEADDB /* EditAnnotationViewController.m in Sources */,

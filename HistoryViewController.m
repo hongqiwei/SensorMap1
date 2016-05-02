@@ -236,7 +236,7 @@
         {
             UIButton *btn = (UIButton *)cc;
             [btn setTitle:@"取消" forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         }
     }
 
