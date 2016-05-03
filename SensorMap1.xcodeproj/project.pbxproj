@@ -26,6 +26,11 @@
 		4D137F741CD78679003D871E /* Nex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F721CD78679003D871E /* Nex.png */; };
 		4D137F751CD78679003D871E /* pengyouquan.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F731CD78679003D871E /* pengyouquan.png */; };
 		4D137F771CD786DA003D871E /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F761CD786DA003D871E /* Next.png */; };
+		4D137F7A1CD86355003D871E /* RegisterService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F791CD86355003D871E /* RegisterService.m */; };
+		4D137F7F1CD88E6F003D871E /* sign_out.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F7B1CD88E6F003D871E /* sign_out.png */; };
+		4D137F801CD88E6F003D871E /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F7C1CD88E6F003D871E /* comment.png */; };
+		4D137F811CD88E6F003D871E /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F7D1CD88E6F003D871E /* config.png */; };
+		4D137F821CD88E6F003D871E /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F7E1CD88E6F003D871E /* world.png */; };
 		4D1422971CBB36B0005D81C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1422961CBB36B0005D81C3 /* main.m */; };
 		4D14229A1CBB36B0005D81C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1422991CBB36B0005D81C3 /* AppDelegate.m */; };
 		4D1422A31CBB36B0005D81C3 /* SensorMap1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D1422A11CBB36B0005D81C3 /* SensorMap1.xcdatamodeld */; };
@@ -108,6 +113,12 @@
 		4D137F721CD78679003D871E /* Nex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Nex.png; sourceTree = "<group>"; };
 		4D137F731CD78679003D871E /* pengyouquan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pengyouquan.png; sourceTree = "<group>"; };
 		4D137F761CD786DA003D871E /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
+		4D137F781CD86355003D871E /* RegisterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterService.h; sourceTree = "<group>"; };
+		4D137F791CD86355003D871E /* RegisterService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterService.m; sourceTree = "<group>"; };
+		4D137F7B1CD88E6F003D871E /* sign_out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sign_out.png; sourceTree = "<group>"; };
+		4D137F7C1CD88E6F003D871E /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
+		4D137F7D1CD88E6F003D871E /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
+		4D137F7E1CD88E6F003D871E /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
 		4D1422921CBB36B0005D81C3 /* SensorMap1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SensorMap1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1422961CBB36B0005D81C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D1422981CBB36B0005D81C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -258,6 +269,8 @@
 				4D081BED1CD72AEE00D9772D /* CallWebServiceUtil.m */,
 				4D081BE91CD72ADC00D9772D /* LoginService.h */,
 				4D081BEA1CD72ADC00D9772D /* LoginService.m */,
+				4D137F781CD86355003D871E /* RegisterService.h */,
+				4D137F791CD86355003D871E /* RegisterService.m */,
 				4D1422CD1CBB3B59005D81C3 /* MeasureViewController.h */,
 				4D1422CE1CBB3B59005D81C3 /* MeasureViewController.m */,
 				4D4576F81CBCD39000EEADDB /* AddAnnotationViewController.h */,
@@ -318,6 +331,10 @@
 		4D1422D41CBB866E005D81C3 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				4D137F7B1CD88E6F003D871E /* sign_out.png */,
+				4D137F7C1CD88E6F003D871E /* comment.png */,
+				4D137F7D1CD88E6F003D871E /* config.png */,
+				4D137F7E1CD88E6F003D871E /* world.png */,
 				4D137F701CD784B3003D871E /* 头像.PNG */,
 				4D137F6E1CD78471003D871E /* More.png */,
 				4D137F6A1CD7829F003D871E /* community.png */,
@@ -474,17 +491,21 @@
 				4D137F751CD78679003D871E /* pengyouquan.png in Resources */,
 				4D1422D71CBB8758005D81C3 /* location_no@2x.png in Resources */,
 				4D137F771CD786DA003D871E /* Next.png in Resources */,
+				4D137F7F1CD88E6F003D871E /* sign_out.png in Resources */,
+				4D137F821CD88E6F003D871E /* world.png in Resources */,
 				4DBF597B1CCF13D400E028AA /* Main.storyboard in Resources */,
 				4D1422D81CBB8758005D81C3 /* location_yes@2x.png in Resources */,
 				4D9455511CD0B7610001B08B /* communication.png in Resources */,
 				4D4576F71CBCCEB500EEADDB /* attibutes.png in Resources */,
 				4D1422A81CBB36B0005D81C3 /* LaunchScreen.storyboard in Resources */,
+				4D137F801CD88E6F003D871E /* comment.png in Resources */,
 				4D4577041CBCDD1E00EEADDB /* upcoming-work.png in Resources */,
 				4D4576F51CBCCE8D00EEADDB /* search.png in Resources */,
 				4D4577031CBCDD1E00EEADDB /* pen.png in Resources */,
 				4D137F741CD78679003D871E /* Nex.png in Resources */,
 				4D081BE51CD715A200D9772D /* Images.xcassets in Resources */,
 				4D1422A51CBB36B0005D81C3 /* Assets.xcassets in Resources */,
+				4D137F811CD88E6F003D871E /* config.png in Resources */,
 				4DDB0B9B1CBE2D08004B511B /* Info.plist in Resources */,
 				4D0C586F1CD49A410005FDFE /* FontAwesome.ttf in Resources */,
 				4D137F6B1CD7829F003D871E /* community.png in Resources */,
@@ -521,6 +542,7 @@
 				4DECD2531CC3BBC5002EE8CF /* WGS84TOGCJ02.m in Sources */,
 				4D4577001CBCD41800EEADDB /* EditAnnotationViewController.m in Sources */,
 				4D1422A31CBB36B0005D81C3 /* SensorMap1.xcdatamodeld in Sources */,
+				4D137F7A1CD86355003D871E /* RegisterService.m in Sources */,
 				4D137F691CD777C6003D871E /* CommunityViewController.m in Sources */,
 				4D553FC91CD0ED090020B36D /* UIView+Extension.m in Sources */,
 				4D553FC31CD0EBBD0020B36D /* DVLineChartView.m in Sources */,

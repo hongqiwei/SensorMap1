@@ -15,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *quitButton;
 - (IBAction)quit:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *userNameLable;
+
 @end

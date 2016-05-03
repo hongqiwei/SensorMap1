@@ -24,4 +24,6 @@ typedef NS_ENUM(NSInteger, JxbLoginShowType) {
 
 - (IBAction)clickRegister:(id)sender;
 
+@property (nonatomic)NSString  *access_token;
+
 @end
