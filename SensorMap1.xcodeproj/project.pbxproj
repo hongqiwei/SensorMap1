@@ -31,6 +31,9 @@
 		4D137F801CD88E6F003D871E /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F7C1CD88E6F003D871E /* comment.png */; };
 		4D137F811CD88E6F003D871E /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F7D1CD88E6F003D871E /* config.png */; };
 		4D137F821CD88E6F003D871E /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F7E1CD88E6F003D871E /* world.png */; };
+		4D137F851CD8D0A5003D871E /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F841CD8D0A5003D871E /* TabbarViewController.m */; };
+		4D137F881CD984AA003D871E /* CommunityService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F871CD984AA003D871E /* CommunityService.m */; };
+		4D137F8B1CD98FE3003D871E /* ShareService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F8A1CD98FE3003D871E /* ShareService.m */; };
 		4D1422971CBB36B0005D81C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1422961CBB36B0005D81C3 /* main.m */; };
 		4D14229A1CBB36B0005D81C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1422991CBB36B0005D81C3 /* AppDelegate.m */; };
 		4D1422A31CBB36B0005D81C3 /* SensorMap1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D1422A11CBB36B0005D81C3 /* SensorMap1.xcdatamodeld */; };
@@ -119,6 +122,12 @@
 		4D137F7C1CD88E6F003D871E /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 		4D137F7D1CD88E6F003D871E /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
 		4D137F7E1CD88E6F003D871E /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
+		4D137F831CD8D0A5003D871E /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
+		4D137F841CD8D0A5003D871E /* TabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarViewController.m; sourceTree = "<group>"; };
+		4D137F861CD984AA003D871E /* CommunityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityService.h; sourceTree = "<group>"; };
+		4D137F871CD984AA003D871E /* CommunityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityService.m; sourceTree = "<group>"; };
+		4D137F891CD98FE3003D871E /* ShareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareService.h; sourceTree = "<group>"; };
+		4D137F8A1CD98FE3003D871E /* ShareService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareService.m; sourceTree = "<group>"; };
 		4D1422921CBB36B0005D81C3 /* SensorMap1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SensorMap1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1422961CBB36B0005D81C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D1422981CBB36B0005D81C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -271,6 +280,12 @@
 				4D081BEA1CD72ADC00D9772D /* LoginService.m */,
 				4D137F781CD86355003D871E /* RegisterService.h */,
 				4D137F791CD86355003D871E /* RegisterService.m */,
+				4D137F891CD98FE3003D871E /* ShareService.h */,
+				4D137F8A1CD98FE3003D871E /* ShareService.m */,
+				4D137F861CD984AA003D871E /* CommunityService.h */,
+				4D137F871CD984AA003D871E /* CommunityService.m */,
+				4D137F831CD8D0A5003D871E /* TabbarViewController.h */,
+				4D137F841CD8D0A5003D871E /* TabbarViewController.m */,
 				4D1422CD1CBB3B59005D81C3 /* MeasureViewController.h */,
 				4D1422CE1CBB3B59005D81C3 /* MeasureViewController.m */,
 				4D4576F81CBCD39000EEADDB /* AddAnnotationViewController.h */,
@@ -545,6 +560,7 @@
 				4D137F7A1CD86355003D871E /* RegisterService.m in Sources */,
 				4D137F691CD777C6003D871E /* CommunityViewController.m in Sources */,
 				4D553FC91CD0ED090020B36D /* UIView+Extension.m in Sources */,
+				4D137F881CD984AA003D871E /* CommunityService.m in Sources */,
 				4D553FC31CD0EBBD0020B36D /* DVLineChartView.m in Sources */,
 				4D081BEE1CD72AEE00D9772D /* CallWebServiceUtil.m in Sources */,
 				4D0C58661CD49A2F0005FDFE /* MozTopAlertView.m in Sources */,
@@ -553,7 +569,9 @@
 				4D137F661CD77716003D871E /* IsLoginViewController.m in Sources */,
 				4DDB0B9C1CBE2D08004B511B /* MZTimerLabel.m in Sources */,
 				4D4576FA1CBCD39000EEADDB /* AddAnnotationViewController.m in Sources */,
+				4D137F851CD8D0A5003D871E /* TabbarViewController.m in Sources */,
 				4DD5D2601CC88F30003D50DF /* DBManager.m in Sources */,
+				4D137F8B1CD98FE3003D871E /* ShareService.m in Sources */,
 				4D553FC61CD0EBBD0020B36D /* DVYAxisView.m in Sources */,
 				4D0C58701CD49A410005FDFE /* NSString+FontAwesome.m in Sources */,
 				4D0C58711CD49A410005FDFE /* UIFont+FontAwesome.m in Sources */,

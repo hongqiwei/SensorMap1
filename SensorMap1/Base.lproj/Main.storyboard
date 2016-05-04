@@ -420,6 +420,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="shareButton:" destination="4Or-ph-hSu" eventType="touchUpInside" id="HE0-if-Qhp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqW-jr-0AU">
                                         <rect key="frame" x="139" y="0.0" width="138" height="60"/>
@@ -593,6 +596,7 @@
                         <outlet property="sensorUIView" destination="GrW-LM-6lc" id="gn1-fo-Ip7"/>
                         <outlet property="timeLable" destination="yyS-Ea-CCG" id="vxw-a8-CG9"/>
                         <outlet property="timeUIView" destination="3MI-kv-5b4" id="2uH-Jn-PMm"/>
+                        <segue destination="HXU-Cn-yxA" kind="show" identifier="shouldLogin" id="BXD-pS-qVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qud-ga-1DA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -833,10 +837,10 @@
             </objects>
             <point key="canvasLocation" x="2510" y="41"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabbar View Controller-->
         <scene sceneID="SBm-fa-9sG">
             <objects>
-                <tabBarController storyboardIdentifier="tab bar" automaticallyAdjustsScrollViewInsets="NO" id="wpC-2y-2C6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tab bar" automaticallyAdjustsScrollViewInsets="NO" id="wpC-2y-2C6" customClass="TabbarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
@@ -923,7 +927,7 @@
         <!--Is Login View Controller-->
         <scene sceneID="UbJ-Un-0NO">
             <objects>
-                <viewController id="X6R-9g-qME" customClass="IsLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IsLoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X6R-9g-qME" customClass="IsLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w8L-q5-iZq"/>
                         <viewControllerLayoutGuide type="bottom" id="4j5-eS-hxt"/>
@@ -1089,6 +1093,6 @@
         <image name="头像.PNG" width="640" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0t8-C4-fdO"/>
+        <segue reference="BXD-pS-qVB"/>
     </inferredMetricsTieBreakers>
 </document>

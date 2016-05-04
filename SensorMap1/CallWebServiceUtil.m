@@ -1,9 +1,9 @@
 //
 //  CallWebServiceUtil.m
-//  FindCarClient
+//  SensorMap1
 //
-//  Created by 兰天 on 16/3/8.
-//  Copyright © 2016年 兰天. All rights reserved.
+//  Created by hongqiwei on 16/5/2.
+//  Copyright © 2016年 hongqiwei. All rights reserved.
 //
 
 #import "CallWebServiceUtil.h"

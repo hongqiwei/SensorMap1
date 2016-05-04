@@ -11,6 +11,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "WGS84TOGCJ02.h"
+#import "ShareService.h"
 
 @interface DetailViewController()<MKMapViewDelegate,CLLocationManagerDelegate>
 
@@ -218,7 +219,60 @@
     return nil;
 }
 
+- (IBAction)shareButton:(id)sender {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *tmp = [defaults stringForKey:@"access_token"];
+    NSLog(@"accesstoken:%@",tmp);
+    if (tmp != NULL) {
+    
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *username = [defaults stringForKey:@"username"];
+     
+        NSString *sensordata = self.sensorLable.text;
+        
+        NSDate *ymd = [NSDate date];
+        NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSString *sharedate=[formatter stringFromDate:ymd];
+        
+        HistoryViewController *historyVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+        NSString *roadname = [NSString stringWithFormat:@"%@",[[historyVC.arryBasicData objectAtIndex:0] objectAtIndex:1]];
+        
+        NSString *mdate = [NSString stringWithFormat:@"%@",[[historyVC.arryBasicData objectAtIndex:0] objectAtIndex:2]];
+        
+        
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+        dispatch_async(queue,^{
+            NSError *error = nil;
+            bool isShareSucessed = [ShareService shareByUserName:username AndShareDate:sharedate AndRoadName:roadname AndSensorData:sensordata AndMeasureDate:mdate error:&error];
 
+            if(error){
+                UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络或服务器错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alter show];
+            }else{
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    // [self.indicatorView stopAnimating];
+                    if(isShareSucessed){
+                        
+                        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"分享成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alter show];
+
+                        NSLog(@"share sucessed");
+                    }else{
+                        NSLog(@"share failed");
+                        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"分享失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alter show];
+                    }
+                });
+            }
+        });
+
+    }else{
+        [self performSegueWithIdentifier:@"shouldLogin" sender:self];
+    }
+}
 
 
 

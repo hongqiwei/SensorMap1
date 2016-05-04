@@ -20,6 +20,8 @@
 #define rectRightHand       CGRectMake(imgLogin.frame.size.width / 2 + 60, 90, 40, 65)
 #define rectRightHandGone   CGRectMake(mainSize.width / 2 + 62, vLogin.frame.origin.y - 22, 40, 40)
 
+
+
 @interface LoginViewController ()<UITextFieldDelegate,UITabBarControllerDelegate>
 {
     UITextField* txtUser;
@@ -37,33 +39,12 @@
 
 @implementation LoginViewController
 
-- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-    
-    
-    NSLog(@"--tabbaritem.title--%@",viewController.tabBarItem.title);
-    
-    //这里我判断的是当前点击的tabBarItem的标题
-    if ([viewController.tabBarItem.title isEqualToString:@"我的账户"]) {
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *tmp = [defaults stringForKey:@"access_token"];
-        NSLog(@"accesstoken:%@",tmp);
-        if (tmp != NULL) {
-            [self performSegueWithIdentifier:@"isLogin" sender:self];
-            return YES;
-        }
-        else{
-            return NO;
-        }
-    }
-    else
-        return NO;
-    
-}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    self.tabBarController.tabBar.hidden = NO;
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     self.navigationController.navigationBar.translucent = NO;
@@ -210,12 +191,6 @@
             dispatch_sync(dispatch_get_main_queue(), ^{
                // [self.indicatorView stopAnimating];
                 if(isLoginSucessed){
-                    
-//                    self.access_token = @"autoLogin";
-//                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//                    [defaults setObject:self.access_token forKey:@"autoLogin"];
-//                    [defaults setObject:self.access_token forKey:@"userName"];
-//                    [defaults setObject:self.access_token forKey:@"autoLogin"];
                     
                     [self performSegueWithIdentifier:@"isLogin" sender:self];
                     NSLog(@"login sucessed");

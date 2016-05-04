@@ -1,24 +1,30 @@
 //
-//  LoginService.m
+//  ShareService.m
 //  SensorMap1
 //
-//  Created by hongqiwei on 16/5/2.
+//  Created by hongqiwei on 16/5/4.
 //  Copyright © 2016年 hongqiwei. All rights reserved.
 //
 
-#import "LoginService.h"
+#import "ShareService.h"
 #import "CallWebServiceUtil.h"
 
-@implementation LoginService
+@implementation ShareService
 
-
-+ (bool)loginByUserName:(NSString *)username
-            AndPassword:(NSString *)password
-                  error:(NSError *__autoreleasing *)error{
++ (bool)shareByUserName:(NSString *)username
+           AndShareDate:(NSString *)sharedate
+                AndRoadName:(NSString *)roadname
+                    AndSensorData:(NSString *)sensordata
+                        AndMeasureDate:(NSString *)measuredate
+                            error:(NSError *__autoreleasing *)error{
+    
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     [params setObject:username forKey:@"username"];
-    [params setObject:password forKey:@"password"];
-    NSData *resultData = [CallWebServiceUtil remoteCallByUrl:@"/login" MethodParams:params error:error];
+    [params setObject:sharedate forKey:@"sharedate"];
+    [params setObject:roadname forKey:@"roadname"];
+    [params setObject:sensordata forKey:@"sensordata"];
+    [params setObject:measuredate forKey:@"measuredate"];
+    NSData *resultData = [CallWebServiceUtil remoteCallByUrl:@"/share" MethodParams:params error:error];
     NSString *tmp = [[NSString alloc]initWithData:resultData encoding:NSUTF8StringEncoding];
     NSLog(@"%@",tmp);
     
@@ -34,19 +40,11 @@
     NSString *result = [dictionary objectForKey:@"result"];
     if([@"success" isEqualToString:result]){
         
-        NSString *access_token = [dictionary objectForKey:@"access_token"];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:access_token forKey:@"access_token"];
-        
-        NSString *tmp = [defaults stringForKey:@"access_token"];
-        NSLog(@"accesstoken:%@",tmp);
-        
-        [defaults setObject:username forKey:@"username"];
         return YES;
     }else{
         return NO;
     }
-}
 
+}
 
 @end

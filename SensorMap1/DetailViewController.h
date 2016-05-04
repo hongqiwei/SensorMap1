@@ -32,5 +32,6 @@
 @property(strong,nonatomic)MKPointAnnotation *addAnnotation1;
 
 -(BOOL)resetAnnotation;
+- (IBAction)shareButton:(id)sender;
 
 @end
