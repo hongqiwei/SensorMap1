@@ -12,6 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "WGS84TOGCJ02.h"
 #import "ShareService.h"
+#import "MozTopAlertView.h"
 
 @interface DetailViewController()<MKMapViewDelegate,CLLocationManagerDelegate>
 
@@ -21,8 +22,8 @@
 @end
 
 
-
 @implementation DetailViewController
+
 
 -(void)viewDidLoad{
     
@@ -153,7 +154,6 @@
     if ([overlay isKindOfClass:[MKPolyline class]])
     {
         MKPolylineRenderer *polylineView =[[MKPolylineRenderer alloc] initWithOverlay:overlay];
-        //MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
         
         polylineView.lineWidth = 2.f;
         polylineView.strokeColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.6];
@@ -255,15 +255,22 @@
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     // [self.indicatorView stopAnimating];
                     if(isShareSucessed){
+    
+                            MozTopAlertView *alertView = [MozTopAlertView showWithType:MozAlertTypeSuccess text:@"分享成功" parentView:self.view];
+                            alertView.dismissBlock = ^(){
+                                NSLog(@"dismissBlock");
+                            };
                         
-                        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"分享成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [alter show];
-
                         NSLog(@"share sucessed");
                     }else{
                         NSLog(@"share failed");
-                        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"分享失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [alter show];
+                        
+                            MozTopAlertView *alertView = [MozTopAlertView showWithType:MozAlertTypeSuccess text:@"分享失败" parentView:self.view];
+                            alertView.dismissBlock = ^(){
+                                NSLog(@"dismissBlock");
+                            };
+                        
+                        
                     }
                 });
             }

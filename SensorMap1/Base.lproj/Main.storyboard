@@ -596,7 +596,7 @@
                         <outlet property="sensorUIView" destination="GrW-LM-6lc" id="gn1-fo-Ip7"/>
                         <outlet property="timeLable" destination="yyS-Ea-CCG" id="vxw-a8-CG9"/>
                         <outlet property="timeUIView" destination="3MI-kv-5b4" id="2uH-Jn-PMm"/>
-                        <segue destination="HXU-Cn-yxA" kind="show" identifier="shouldLogin" id="BXD-pS-qVB"/>
+                        <segue destination="F7v-ve-m2O" kind="show" identifier="shouldLogin" id="8PO-ue-n3b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qud-ga-1DA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -698,12 +698,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwB-ws-1pX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="2832"/>
+            <point key="canvasLocation" x="2836" y="2920"/>
         </scene>
         <!--标注修改-->
         <scene sceneID="od2-2K-hLa">
             <objects>
-                <viewController storyboardIdentifier="EditAnnotation" title="标注修改" id="ktf-3F-kJx" customClass="EditAnnotationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditAnnotation" title="标注修改" hidesBottomBarWhenPushed="YES" id="ktf-3F-kJx" customClass="EditAnnotationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ytd-G5-nTL"/>
                         <viewControllerLayoutGuide type="bottom" id="cWY-1o-jgH"/>
@@ -764,6 +764,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Il-PY-lWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3461" y="1087"/>
+        </scene>
+        <!--账号登录-->
+        <scene sceneID="IN3-4d-WNd">
+            <objects>
+                <viewController title="账号登录" id="F7v-ve-m2O" customClass="ShouldLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="adf-Jv-ypA"/>
+                        <viewControllerLayoutGuide type="bottom" id="zco-Mx-bfn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PRO-CO-dMq" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2f6-MQ-WhV">
+                                <rect key="frame" x="374" y="84" width="20" height="20"/>
+                                <color key="color" red="0.94901960780000005" green="0.33630862649999999" blue="0.30012650070000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmC-E9-WeS">
+                                <rect key="frame" x="259" y="400" width="60" height="30"/>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" red="0.51900993549999996" green="0.19083716219999999" blue="0.086198515099999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickRegister:" destination="F7v-ve-m2O" eventType="touchUpInside" id="L32-bW-LPn"/>
+                                    <action selector="clickRegister:" destination="HXU-Cn-yxA" eventType="touchUpInside" id="o01-tq-hMk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEk-Dl-fiV">
+                                <rect key="frame" x="95" y="400" width="60" height="30"/>
+                                <state key="normal" title="登录">
+                                    <color key="titleColor" red="0.51900993549999996" green="0.19083716219999999" blue="0.086198515099999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickLogin:" destination="F7v-ve-m2O" eventType="touchUpInside" id="637-9W-ivU"/>
+                                    <action selector="clickLogin:" destination="HXU-Cn-yxA" eventType="touchUpInside" id="RuT-3C-K4V"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="touchView:" destination="F7v-ve-m2O" eventType="touchUpInside" id="5xI-oP-9zK"/>
+                        </connections>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="736"/>
+                    <connections>
+                        <outlet property="loading" destination="2f6-MQ-WhV" id="d9z-jd-Lj3"/>
+                        <outlet property="loginButton" destination="LEk-Dl-fiV" id="BA6-hf-nXc"/>
+                        <outlet property="registerButton" destination="VmC-E9-WeS" id="rgM-iV-xAg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jxE-cQ-Y2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3461" y="1964"/>
         </scene>
         <!--路况标注-->
         <scene sceneID="CWw-RG-hgi">
@@ -837,10 +891,10 @@
             </objects>
             <point key="canvasLocation" x="2510" y="41"/>
         </scene>
-        <!--Tabbar View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="SBm-fa-9sG">
             <objects>
-                <tabBarController storyboardIdentifier="tab bar" automaticallyAdjustsScrollViewInsets="NO" id="wpC-2y-2C6" customClass="TabbarViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tab bar" automaticallyAdjustsScrollViewInsets="NO" id="wpC-2y-2C6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
@@ -907,27 +961,37 @@
                                     <action selector="clickRegister:" destination="HXU-Cn-yxA" eventType="touchUpInside" id="7G7-1J-RRl"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="k00-De-Qzl">
+                                <rect key="frame" x="366" y="86" width="20" height="20"/>
+                                <color key="color" red="0.94901960780000005" green="0.33630862649999999" blue="0.30012650070000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fiN-iU-u5X">
+                                <rect key="frame" x="0.0" y="673" width="414" height="63"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <action selector="touchView:" destination="HXU-Cn-yxA" eventType="touchUpInside" id="Mag-df-ffa"/>
                         </connections>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="lmb-l6-Dlk"/>
                     <connections>
+                        <outlet property="loading" destination="k00-De-Qzl" id="Cph-Vk-Pdd"/>
                         <outlet property="loginButton" destination="QOZ-V3-Nog" id="5Mh-4p-EGy"/>
                         <outlet property="registerButton" destination="C5Z-QJ-y7X" id="cp3-yN-0kQ"/>
-                        <segue destination="X6R-9g-qME" kind="show" identifier="isLogin" id="iFI-TC-5Sv"/>
+                        <segue destination="X6R-9g-qME" kind="show" identifier="login" id="37h-ge-HH5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4i-S5-E8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939" y="1431"/>
         </scene>
-        <!--Is Login View Controller-->
+        <!--IsLogin ViewController-->
         <scene sceneID="UbJ-Un-0NO">
             <objects>
-                <viewController storyboardIdentifier="IsLoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X6R-9g-qME" customClass="IsLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IsLoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X6R-9g-qME" userLabel="IsLogin ViewController" customClass="IsLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w8L-q5-iZq"/>
                         <viewControllerLayoutGuide type="bottom" id="4j5-eS-hxt"/>
@@ -1022,9 +1086,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z38-LZ-8ZR">
+                                <rect key="frame" x="0.0" y="686" width="414" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94961414703315883" green="0.94961414703315883" blue="0.94961414703315883" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="nY1-yf-hs5"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
@@ -1036,7 +1106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bd1-Lm-vTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="2380"/>
+            <point key="canvasLocation" x="849" y="2578"/>
         </scene>
         <!--历史记录-->
         <scene sceneID="Rt2-Dm-Zt2">
@@ -1060,21 +1130,27 @@
         <!--我的账户-->
         <scene sceneID="adb-0d-lgz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bmC-fs-rN0" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bmC-fs-rN0" customClass="NavigationViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的账户" image="suppliers.png" id="Efa-gg-M3o"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="yoG-pM-Qag"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Mz-1e-Fgc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Z6k-fs-nes">
+                        <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="HXU-Cn-yxA" kind="relationship" relationship="rootViewController" id="0t8-C4-fdO"/>
+                        <segue destination="X6R-9g-qME" kind="show" identifier="isLogin" id="aip-ma-BEZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPY-aE-IbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="1431"/>
+            <point key="canvasLocation" x="313" y="1464"/>
         </scene>
     </scenes>
     <resources>
@@ -1093,6 +1169,7 @@
         <image name="头像.PNG" width="640" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BXD-pS-qVB"/>
+        <segue reference="tGg-Ds-DNx"/>
+        <segue reference="37h-ge-HH5"/>
     </inferredMetricsTieBreakers>
 </document>

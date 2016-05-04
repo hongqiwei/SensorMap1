@@ -15,8 +15,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    self.tabBarController.tabBar.hidden = NO;
-    
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     self.navigationController.navigationBar.translucent = NO;
     
@@ -49,13 +47,27 @@
             [alter show];
         }else{
             dispatch_sync(dispatch_get_main_queue(), ^{
-                // [self.indicatorView stopAnimating];
                 if(isShowSucessed){
                     
-                    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"朋友圈获取成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alter show];
+//                    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"朋友圈获取成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//                    [alter show];
+//                    
+//                    NSLog(@"show sucessed");
                     
-                    NSLog(@"show sucessed");
+                    
+                    NSError *error;
+                    NSArray *array = [CommunityService getShareListWitherror:&error];
+                    if (!error&&array) {
+                        self.dataSource = [[NSMutableArray alloc]init];
+                        for (int i=0; i<array.count; i++) {
+                            NSString *share_str = [array objectAtIndex:i];
+                            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[share_str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
+                            [self.dataSource addObject:dict];
+                        }
+                    }
+                    NSLog(@"朋友圈数据：%@",self.dataSource);
+                    
+                    
                 }else{
                     NSLog(@"share failed");
                     UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"朋友圈获取失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -65,14 +77,13 @@
         }
     });
     
-
+    
 
 
 }
 
 - (IBAction)quit:(id)sender {
-//    LoginViewController *loginVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
-//    loginVC.access_token = 0;
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"access_token"];
     [defaults removeObjectForKey:@"username"];

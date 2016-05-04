@@ -1,13 +1,15 @@
 //
-//  LoginViewController.h
+//  ShouldLoginViewController.h
 //  SensorMap1
 //
-//  Created by hongqiwei on 16/5/2.
+//  Created by hongqiwei on 16/5/4.
 //  Copyright © 2016年 hongqiwei. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+
 
 typedef NS_ENUM(NSInteger, JxbLoginShowType) {
     JxbLoginShowType_NONE,
@@ -15,13 +17,13 @@ typedef NS_ENUM(NSInteger, JxbLoginShowType) {
     JxbLoginShowType_PASS
 };
 
-@interface LoginViewController : UIViewController
+@interface ShouldLoginViewController : UIViewController
 
 - (IBAction)touchView:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
-- (IBAction)clickLogin:(id)sender;
 
+- (IBAction)clickLogin:(id)sender;
 - (IBAction)clickRegister:(id)sender;
 
 @property (nonatomic)NSString  *access_token;

@@ -16,5 +16,6 @@
 - (IBAction)quit:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *userNameLable;
+@property (strong,nonatomic) NSMutableArray *dataSource;
 
 @end

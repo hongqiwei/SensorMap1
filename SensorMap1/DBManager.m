@@ -32,34 +32,7 @@
     return self;
 }
 
-//#pragma mark 建表
-//-(BOOL)createTableWithSql:(const char *)sql_stmt{
-//    BOOL isSuccess = YES;
-//    //检查数据库文件是否已经存在
-//    NSString *destinationPath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
-//    NSLog(@"path:%@",destinationPath);
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
-//        sqlite3 *database = nil;
-//        const char *dbpath = [destinationPath UTF8String];
-//        if (sqlite3_open(dbpath, &database) == SQLITE_OK){
-//            char *errMsg;
-//            //
-//            //const char *csql =[sql_stmt UTF8String];
-//            
-//            if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg)
-//                != SQLITE_OK)
-//            {
-//                isSuccess = NO;
-//                NSLog(@"Failed to create table");
-//            }
-//            sqlite3_close(database);
-//        }else{
-//            isSuccess = NO;
-//            NSLog(@"Failed to open/create table");
-//        }
-//    }
-//    return isSuccess;
-//}
+
 
 #pragma mark 建表
 -(void)createTable{

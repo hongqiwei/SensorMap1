@@ -26,16 +26,17 @@
         NSString *tmp = [defaults stringForKey:@"access_token"];
         NSLog(@"accesstoken:%@",tmp);
         if (tmp != NULL) {
-            //[self performSegueWithIdentifier:@"isLogin" sender:self];
-            
-            IsLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"IsLoginVC"];
-            [((UINavigationController *)tabBarController.selectedViewController) pushViewController:vc animated:YES];
+//            [self performSegueWithIdentifier:@"isLogin" sender:self];
+//            
+//            IsLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"IsLoginVC"];
+//            [((UINavigationController *)tabBarController.selectedViewController)
+//             pushViewController:vc animated:YES];
             
             return NO;
         }
         
     }
-        
+    
     return YES;
     
 }

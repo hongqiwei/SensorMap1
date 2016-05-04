@@ -34,6 +34,7 @@
 		4D137F851CD8D0A5003D871E /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F841CD8D0A5003D871E /* TabbarViewController.m */; };
 		4D137F881CD984AA003D871E /* CommunityService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F871CD984AA003D871E /* CommunityService.m */; };
 		4D137F8B1CD98FE3003D871E /* ShareService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F8A1CD98FE3003D871E /* ShareService.m */; };
+		4D137F8E1CD9D8DD003D871E /* ShouldLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F8D1CD9D8DD003D871E /* ShouldLoginViewController.m */; };
 		4D1422971CBB36B0005D81C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1422961CBB36B0005D81C3 /* main.m */; };
 		4D14229A1CBB36B0005D81C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1422991CBB36B0005D81C3 /* AppDelegate.m */; };
 		4D1422A31CBB36B0005D81C3 /* SensorMap1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D1422A11CBB36B0005D81C3 /* SensorMap1.xcdatamodeld */; };
@@ -62,6 +63,7 @@
 		4D553FCC1CD0F15D0020B36D /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D553FCB1CD0F15D0020B36D /* UIColor+Hex.m */; };
 		4D94554F1CD0AB160001B08B /* SensorDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D94554E1CD0AB160001B08B /* SensorDataViewController.m */; };
 		4D9455511CD0B7610001B08B /* communication.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D9455501CD0B7610001B08B /* communication.png */; };
+		4DBE86591CDA18880045CC68 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBE86581CDA18880045CC68 /* NavigationViewController.m */; };
 		4DBF597B1CCF13D400E028AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF59791CCF13D400E028AA /* Main.storyboard */; };
 		4DD5D25D1CC88929003D50DF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD5D25C1CC88929003D50DF /* libsqlite3.tbd */; };
 		4DD5D2601CC88F30003D50DF /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5D25F1CC88F30003D50DF /* DBManager.m */; };
@@ -128,6 +130,8 @@
 		4D137F871CD984AA003D871E /* CommunityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityService.m; sourceTree = "<group>"; };
 		4D137F891CD98FE3003D871E /* ShareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareService.h; sourceTree = "<group>"; };
 		4D137F8A1CD98FE3003D871E /* ShareService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareService.m; sourceTree = "<group>"; };
+		4D137F8C1CD9D8DD003D871E /* ShouldLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldLoginViewController.h; sourceTree = "<group>"; };
+		4D137F8D1CD9D8DD003D871E /* ShouldLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldLoginViewController.m; sourceTree = "<group>"; };
 		4D1422921CBB36B0005D81C3 /* SensorMap1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SensorMap1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1422961CBB36B0005D81C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D1422981CBB36B0005D81C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 		4D94554D1CD0AB160001B08B /* SensorDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorDataViewController.h; sourceTree = "<group>"; };
 		4D94554E1CD0AB160001B08B /* SensorDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorDataViewController.m; sourceTree = "<group>"; };
 		4D9455501CD0B7610001B08B /* communication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = communication.png; sourceTree = "<group>"; };
+		4DBE86571CDA18880045CC68 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		4DBE86581CDA18880045CC68 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		4DBF597A1CCF13D400E028AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4DD5D25C1CC88929003D50DF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4DD5D25E1CC88F30003D50DF /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -286,6 +292,8 @@
 				4D137F871CD984AA003D871E /* CommunityService.m */,
 				4D137F831CD8D0A5003D871E /* TabbarViewController.h */,
 				4D137F841CD8D0A5003D871E /* TabbarViewController.m */,
+				4DBE86571CDA18880045CC68 /* NavigationViewController.h */,
+				4DBE86581CDA18880045CC68 /* NavigationViewController.m */,
 				4D1422CD1CBB3B59005D81C3 /* MeasureViewController.h */,
 				4D1422CE1CBB3B59005D81C3 /* MeasureViewController.m */,
 				4D4576F81CBCD39000EEADDB /* AddAnnotationViewController.h */,
@@ -294,6 +302,8 @@
 				4D4576EE1CBCC70900EEADDB /* HistoryViewController.m */,
 				4D4576FB1CBCD3E000EEADDB /* DetailViewController.h */,
 				4D4576FC1CBCD3E000EEADDB /* DetailViewController.m */,
+				4D137F8C1CD9D8DD003D871E /* ShouldLoginViewController.h */,
+				4D137F8D1CD9D8DD003D871E /* ShouldLoginViewController.m */,
 				4D94554D1CD0AB160001B08B /* SensorDataViewController.h */,
 				4D94554E1CD0AB160001B08B /* SensorDataViewController.m */,
 				4D4576FE1CBCD41800EEADDB /* EditAnnotationViewController.h */,
@@ -580,8 +590,10 @@
 				4D081BEB1CD72ADC00D9772D /* LoginService.m in Sources */,
 				4D94554F1CD0AB160001B08B /* SensorDataViewController.m in Sources */,
 				4D0C586E1CD49A410005FDFE /* FAImageView.m in Sources */,
+				4D137F8E1CD9D8DD003D871E /* ShouldLoginViewController.m in Sources */,
 				4D1422971CBB36B0005D81C3 /* main.m in Sources */,
 				4D4576FD1CBCD3E000EEADDB /* DetailViewController.m in Sources */,
+				4DBE86591CDA18880045CC68 /* NavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,12 +1,12 @@
 //
-//  LoginViewController.m
+//  ShouldLoginViewController.m
 //  SensorMap1
 //
-//  Created by hongqiwei on 16/5/2.
+//  Created by hongqiwei on 16/5/4.
 //  Copyright © 2016年 hongqiwei. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "ShouldLoginViewController.h"
 #import "LoginService.h"
 #import "RegisterService.h"
 #import "MozTopAlertView.h"
@@ -21,9 +21,7 @@
 #define rectRightHand       CGRectMake(imgLogin.frame.size.width / 2 + 60, 90, 40, 65)
 #define rectRightHandGone   CGRectMake(mainSize.width / 2 + 62, vLogin.frame.origin.y - 22, 40, 40)
 
-
-
-@interface LoginViewController ()<UITextFieldDelegate,UITabBarControllerDelegate>
+@interface ShouldLoginViewController ()<UITextFieldDelegate>
 {
     UITextField* txtUser;
     UITextField* txtPwd;
@@ -36,35 +34,10 @@
     
     JxbLoginShowType showType;
 }
+
 @end
 
-@implementation LoginViewController
-
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *tmp = [defaults stringForKey:@"access_token"];
-    NSLog(@"accesstoken:%@",tmp);
-    if (tmp != NULL) {
-        
-        [self performSegueWithIdentifier:@"login" sender:self];
-        
-        
-    }
-    
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    self.navigationController.navigationBar.translucent = NO;
-    
-
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
+@implementation ShouldLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -128,7 +101,7 @@
     self.registerButton.layer.borderWidth = 2;
     self.registerButton.layer.cornerRadius = 5;
     self.registerButton.layer.borderColor =[[UIColor colorWithRed:0.51 green:0.24 blue:0.16 alpha:1]CGColor];
- 
+    
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -175,10 +148,7 @@
     }
 }
 
-//点击屏幕其他地方隐藏键盘
-- (IBAction)touchView:(id)sender {
-     [self.view endEditing:YES];
-}
+
 
 - (IBAction)clickLogin:(id)sender {
     
@@ -191,8 +161,8 @@
     //dispatch_queue_create("com.dispatch.serial", DISPATCH_QUEUE_SERIAL);
     dispatch_async(queue,^{
         NSError *error = nil;
-       bool isLoginSucessed = [LoginService loginByUserName:username
-                                              AndPassword:password
+        bool isLoginSucessed = [LoginService loginByUserName:username
+                                                 AndPassword:password
                                                        error:&error];
         if(error){
             
@@ -200,14 +170,15 @@
             [alter show];
         }else{
             dispatch_sync(dispatch_get_main_queue(), ^{
-               
+                
                 [self.loading stopAnimating];
                 
                 if(isLoginSucessed){
-                    [self performSegueWithIdentifier:@"login" sender:self];
+                    //[self performSegueWithIdentifier:@"shouldLogin" sender:self];
+                    [self.navigationController popViewControllerAnimated:YES];
                     NSLog(@"login sucessed");
                 }else{
-                   
+                    
                     NSLog(@"login failed");
                     UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"用户名或密码错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alter show];
@@ -215,7 +186,7 @@
             });
         }
     });
-
+    
     
 }
 
@@ -231,8 +202,8 @@
     dispatch_async(queue,^{
         NSError *error = nil;
         bool isRegisterSucessed = [RegisterService registerByUserName:username
-                                                 AndPassword:password
-                                                       error:&error];
+                                                          AndPassword:password
+                                                                error:&error];
         if(error){
             UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络或服务器错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alter show];
@@ -257,6 +228,12 @@
             });
         }
     });
+    
+}
 
+
+//点击屏幕其他地方隐藏键盘
+- (IBAction)touchView:(id)sender {
+    [self.view endEditing:YES];
 }
 @end

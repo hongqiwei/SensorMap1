@@ -47,6 +47,29 @@
     
 }
 
++ (NSArray *)getShareListWitherror:(NSError *__autoreleasing *)error{
+    NSArray *shareList;
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    NSData *resultData = [CallWebServiceUtil remoteCallByUrl:@"/community" MethodParams:params error:error];
+    
+    if(*error){
+        NSLog(@"调用服务器错误:%@",[*error localizedDescription]);
+        return shareList;
+    }
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:resultData options:NSJSONReadingMutableLeaves error:error];
+    if(*error){
+        NSLog(@"list解析错误!");
+        return shareList;
+    }
+    NSString *result = [dictionary objectForKey:@"result"];
+    if([@"success" isEqualToString:result]){
+        shareList = [dictionary objectForKey:@"share_list"];
+    }
+    
+    return shareList;
+    
+}
+
 + (bool)showByRoadName:(NSString *)roadname
          AndSensorData:(NSString *)sensordata
             AndMeasureDate:(NSString *)measuredate
