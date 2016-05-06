@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mSpeedLable;
 @property (weak, nonatomic) IBOutlet UILabel *aSpeedLable;
 @property (weak, nonatomic) IBOutlet UILabel *sensorLable;
+@property (weak, nonatomic) IBOutlet UILabel *pointLable;
 //定时器属性
 @property (strong,nonatomic) NSTimer *timer;
 @property(strong,nonatomic)NSTimer *sensorTimer;
@@ -315,6 +316,9 @@
     NSLog(@"里程：%@",self.mileageLable.text);
     NSLog(@"均速：%@",self.aSpeedLable.text);
     
+    self.sensorLable.text = @"0.00";
+    self.pointLable.text = @"0";
+    
 }
 
 ////定时器方法
@@ -335,6 +339,10 @@
     
     NSLog(@"%@",self.locationArray);
     
+    //测量点数显示
+   NSString *a = [[NSString alloc]initWithFormat:@"%lu",(unsigned long)self.locationArray.count] ;
+    self.pointLable.text =  a;
+    NSLog(@"测量点数为：%@",a);
 /**数组实例**/
 //    NSArray *array = [[NSArray alloc] initWithObjects:[NSArray arrayWithObjects:@"iOS",@"android",@"C",@"C++",@"OC",@"JAVA", nil],[NSArray arrayWithObjects:@"php",@"c#",@"FMDB",@"sqlite",@"odbc",@"photoshop", nil],
 //                      [NSArray arrayWithObjects:@"javascript",@"xml",@"html",@"cocos2D",@"u3d",@"sjjg", nil],nil];
@@ -379,6 +387,7 @@
         self.aSpeedLable.text = [[NSString alloc]initWithFormat:@"%.2f",self.avgSpeed*60*60/1000];
         //海拔显示
         self.altitudeLable.text = [[NSString alloc]initWithFormat:@"%.2f",self.locationManager.location.altitude];
+
         //传感显示以及传感平均值
         NSLog(@"z的值为:%f",self.z);
         self.sensorLable.text = [[NSString alloc]initWithFormat:@"%.2f",pow(self.z+1,2)];
@@ -390,7 +399,7 @@
         NSNumber *secID = [[NSNumber alloc]initWithDouble:self.timeInterval];
         NSNumber *speed = [[NSNumber alloc]initWithDouble:self.speed*60*60/1000];
         NSNumber *alt = [[NSNumber alloc]initWithDouble:self.locationManager.location.altitude];
-        NSNumber *accZ = [[NSNumber alloc]initWithDouble:self.z];
+        NSNumber *accZ = [[NSNumber alloc]initWithDouble:pow(self.z+1,2)];
         NSLog(@"accZ的值为：%@",accZ);
         
         NSArray *dataTmp = [[NSArray alloc]initWithObjects:secID,lat1,log1,speed,alt,accZ, nil];

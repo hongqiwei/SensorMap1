@@ -16,6 +16,10 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     [params setObject:username forKey:@"username"];
     NSData *resultData = [CallWebServiceUtil remoteCallByUrl:@"/community" MethodParams:params error:error];
+    NSString *tmp = [[NSString alloc]initWithData:resultData encoding:(NSUTF8StringEncoding)];
+    NSLog(@"tmp1:%@",tmp );
+    
+    //tmp = @"\"{\"result\":\"success\"}\"";
     
     if (*error) {
         NSLog(@"调用服务器错误：%@",[*error localizedDescription]);
@@ -23,7 +27,7 @@
     }
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:resultData options:NSJSONReadingMutableLeaves error:error];
     if(*error){
-        NSLog(@"解析错误!");
+        NSLog(@"解析错误!%@",*error);
         return NO;
     }
     NSString *result = [dictionary objectForKey:@"result"];
@@ -47,10 +51,16 @@
     
 }
 
-+ (NSArray *)getShareListWitherror:(NSError *__autoreleasing *)error{
++ (NSArray *)getShareListWithUserName:(NSString *)username
+                             error:(NSError *__autoreleasing *)error{
     NSArray *shareList;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    NSData *resultData = [CallWebServiceUtil remoteCallByUrl:@"/community" MethodParams:params error:error];
+    [params setObject:username forKey:@"username"];
+    NSData *resultData = [CallWebServiceUtil remoteCallByUrl:@"/getShareList" MethodParams:params error:error];
+    
+    NSString *tmp = [[NSString alloc]initWithData:resultData encoding:(NSUTF8StringEncoding)];
+    //NSString *tmp = [[NSString alloc]initWithUTF8String:resultData];
+    NSLog(@"tmp2:%@",tmp );
     
     if(*error){
         NSLog(@"调用服务器错误:%@",[*error localizedDescription]);
@@ -58,12 +68,18 @@
     }
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:resultData options:NSJSONReadingMutableLeaves error:error];
     if(*error){
-        NSLog(@"list解析错误!");
+        NSLog(@"解析错误!");
         return shareList;
     }
+    /*
+     *服务端未返回result
+     *服务端list存储数据有误
+     */
     NSString *result = [dictionary objectForKey:@"result"];
+    NSLog(@"result:%@",result);
     if([@"success" isEqualToString:result]){
-        shareList = [dictionary objectForKey:@"share_list"];
+        shareList = [dictionary objectForKey:@"share_pengyouquan"];
+        NSLog(@"sharelist:%@",shareList);
     }
     
     return shareList;

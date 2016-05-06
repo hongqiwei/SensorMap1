@@ -13,7 +13,8 @@
 +(BOOL)showByUserName:(NSString *)username
                 error:(NSError **)error;
 
-+ (NSArray *)getShareListWitherror:(NSError **)error;
++ (NSArray *)getShareListWithUserName:(NSString *)username
+                             error:(NSError *__autoreleasing *)error;
 
 + (bool)showByRoadName:(NSString *)roadname
                AndSensorData:(NSString *)sensordata

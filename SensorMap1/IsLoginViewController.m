@@ -52,20 +52,22 @@
 //                    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"朋友圈获取成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //                    [alter show];
 //                    
-//                    NSLog(@"show sucessed");
+//                  NSLog(@"show sucessed");
                     
+                    NSLog(@"可以展示朋友圈");
+                    [self pengyouquan];
                     
-                    NSError *error;
-                    NSArray *array = [CommunityService getShareListWitherror:&error];
-                    if (!error&&array) {
-                        self.dataSource = [[NSMutableArray alloc]init];
-                        for (int i=0; i<array.count; i++) {
-                            NSString *share_str = [array objectAtIndex:i];
-                            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[share_str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
-                            [self.dataSource addObject:dict];
-                        }
+                    for (int n=0; n<self.dataSource.count; n++) {
+                        NSString *tmp0 = [[NSString alloc]initWithFormat:@"%@",[self.dataSource objectAtIndex:n]];
+                        NSLog(@"tmp0:%@",tmp0);
+                        
+//                        NSString *tmp1 = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:n]objectAtIndex:1]];
+//                        NSString *tmp2 = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:n]objectAtIndex:2]];
+//                        NSString *tmp3 = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:n]objectAtIndex:3]];
+//                        NSString *tmp4 = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:n]objectAtIndex:4]];
+//                        
+//                        NSLog(@"分享数据：%@,%@,%@,%@,%@",tmp0,tmp1,tmp2,tmp3,tmp4);
                     }
-                    NSLog(@"朋友圈数据：%@",self.dataSource);
                     
                     
                 }else{
@@ -77,9 +79,32 @@
         }
     });
     
+
+}
+
+-(void)pengyouquan{
     
-
-
+    NSString *name = self.userNameLable.text ;
+    NSError *error;
+    NSLog(@"error:%@",error);
+    NSArray *array = [CommunityService getShareListWithUserName:name error:&error];
+    NSLog(@"array:%@",array);
+    if (!error&&array) {
+        self.dataSource = [[NSMutableArray alloc]init];
+        for (int i=0; i<array.count; i++) {
+            
+//            NSString *test = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:i]objectAtIndex:0]];
+//            NSLog(@"test:%@",test);
+            
+            
+            NSDictionary *share_str = [array objectAtIndex:i];
+            NSLog(@"share_str:%@",share_str);
+//            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[share_str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
+            [self.dataSource addObject:share_str];
+        }
+    }
+    NSLog(@"朋友圈数据：%@",self.dataSource);
+    
 }
 
 - (IBAction)quit:(id)sender {
