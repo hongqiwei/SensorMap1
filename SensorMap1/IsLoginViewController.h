@@ -17,5 +17,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *userNameLable;
 @property (strong,nonatomic) NSMutableArray *dataSource;
+@property (weak, nonatomic) IBOutlet UITableView *shareTable;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loading;
+
+@property (nonatomic) int time;
 
 @end

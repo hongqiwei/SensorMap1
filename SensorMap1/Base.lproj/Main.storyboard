@@ -1001,22 +1001,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4M-o6-Cgb">
-                                <rect key="frame" x="0.0" y="284" width="414" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcI-zx-idH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                        <state key="normal" title="社区"/>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pengyouquan.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yov-Vs-hp9">
-                                        <rect key="frame" x="15" y="10" width="32" height="32"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Next.png" translatesAutoresizingMaskIntoConstraints="NO" id="YIc-il-KfS">
-                                        <rect key="frame" x="376" y="12" width="20" height="25"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJz-P8-AGs">
                                 <rect key="frame" x="0.0" y="153" width="414" height="55"/>
                                 <subviews>
@@ -1091,6 +1075,58 @@
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4M-o6-Cgb">
+                                <rect key="frame" x="-1" y="216" width="414" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pengyouquan.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yov-Vs-hp9">
+                                        <rect key="frame" x="15" y="10" width="32" height="32"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="社区分享记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQv-Bv-vq2">
+                                        <rect key="frame" x="156" y="16" width="102" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zjQ-94-kV6">
+                                        <rect key="frame" x="378" y="15" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0h8-Zc-oVl">
+                                <rect key="frame" x="0.0" y="279" width="414" height="406"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="idCellRecord" textLabel="zSk-Jo-hU1" detailTextLabel="rJq-PO-eIe" style="IBUITableViewCellStyleSubtitle" id="6al-j3-36s">
+                                        <rect key="frame" x="0.0" y="22" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6al-j3-36s" id="hfT-vF-u32">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zSk-Jo-hU1">
+                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJq-PO-eIe">
+                                                    <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="X6R-9g-qME" id="ae3-q2-g9v"/>
+                                    <outlet property="delegate" destination="X6R-9g-qME" id="X5D-hc-3JS"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.94961414703315883" green="0.94961414703315883" blue="0.94961414703315883" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1100,7 +1136,9 @@
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
                         <outlet property="head_Icon" destination="6NC-fF-v0t" id="A4k-rW-jmg"/>
+                        <outlet property="loading" destination="zjQ-94-kV6" id="mNO-OR-IwW"/>
                         <outlet property="quitButton" destination="W8d-ho-dxS" id="4nS-tN-wIN"/>
+                        <outlet property="shareTable" destination="0h8-Zc-oVl" id="XZ0-UX-ASr"/>
                         <outlet property="userNameLable" destination="Cwm-oJ-cTL" id="by8-dH-JtV"/>
                         <segue destination="HXU-Cn-yxA" kind="show" identifier="quit" id="tGg-Ds-DNx"/>
                     </connections>
@@ -1155,7 +1193,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Next.png" width="17" height="30"/>
         <image name="attibutes.png" width="16" height="16"/>
         <image name="comment.png" width="32" height="32"/>
         <image name="communication.png" width="16" height="16"/>

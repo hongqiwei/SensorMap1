@@ -11,7 +11,6 @@
 #import "MozTopAlertView.h"
 
 #define DBNAME    @"myDB.sqlite"
-//#define TABLENAME @"BASICTABLE"
 
 @interface HistoryViewController ()
 
@@ -28,8 +27,8 @@
     
     //初始化DBManager
     _dbManager = [[DBManager alloc] initWithDatabaseFilename:DBNAME];
-    //[_dbManager createTableWithSql:"CREATE TABLE roadData(roadInfoID integer primary key, roadname text, datetime text, info text);"];
     [self.dbManager createTable];
+    
     //去除TableView多余横线
     [self setTableFooterView:_tableMain];
     
@@ -168,11 +167,11 @@
 
 -(void)handleSearchForTerm:(NSString *)searchTerm{
 
-    //初始化存储结果的array
-    if (self.searchResults != nil) {
-        [self.searchResults removeAllObjects];
-        self.searchResults = nil;
-    }
+//    //初始化存储结果的array
+//    if (self.searchResults != nil) {
+//        [self.searchResults removeAllObjects];
+//        self.searchResults = nil;
+//    }
     self.searchResults = [[NSMutableArray alloc] init];
     
     for (int n=0; n<self.arrRoadData.count; n++) {

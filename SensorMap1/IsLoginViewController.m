@@ -15,6 +15,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    self.time = self.time + 1;
+    
+    [self.loading startAnimating];
+    
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     self.navigationController.navigationBar.translucent = NO;
     
@@ -36,7 +40,23 @@
     NSString *name = [defaults stringForKey:@"username"];
     self.userNameLable.text = name;
     
-   
+    if (self.time<1) {
+        [self getsharelist];
+    }else{
+        [self loadData];
+        [self.loading stopAnimating];
+    }
+    
+    
+    //去除TableView多余横线
+    [self setTableFooterView:self.shareTable];
+}
+
+-(void)getsharelist{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *name = [defaults stringForKey:@"username"];
+    
     dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
     dispatch_async(queue,^{
         NSError *error = nil;
@@ -49,26 +69,17 @@
             dispatch_sync(dispatch_get_main_queue(), ^{
                 if(isShowSucessed){
                     
-//                    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"朋友圈获取成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//                    [alter show];
-//                    
-//                  NSLog(@"show sucessed");
+                    //                    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"朋友圈获取成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    //                    [alter show];
+                    //
+                    //                  NSLog(@"show sucessed");
                     
                     NSLog(@"可以展示朋友圈");
                     [self pengyouquan];
                     
-                    for (int n=0; n<self.dataSource.count; n++) {
-                        NSString *tmp0 = [[NSString alloc]initWithFormat:@"%@",[self.dataSource objectAtIndex:n]];
-                        NSLog(@"tmp0:%@",tmp0);
-                        
-//                        NSString *tmp1 = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:n]objectAtIndex:1]];
-//                        NSString *tmp2 = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:n]objectAtIndex:2]];
-//                        NSString *tmp3 = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:n]objectAtIndex:3]];
-//                        NSString *tmp4 = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:n]objectAtIndex:4]];
-//                        
-//                        NSLog(@"分享数据：%@,%@,%@,%@,%@",tmp0,tmp1,tmp2,tmp3,tmp4);
-                    }
+                    [self loadData];
                     
+                    [self.loading stopAnimating];
                     
                 }else{
                     NSLog(@"share failed");
@@ -78,8 +89,8 @@
             });
         }
     });
-    
 
+    
 }
 
 -(void)pengyouquan{
@@ -96,14 +107,23 @@
 //            NSString *test = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:i]objectAtIndex:0]];
 //            NSLog(@"test:%@",test);
             
+            NSString *username = array[i][@"user_name"];
+            NSString *sharedate = array[i][@"share_date"];
             
-            NSDictionary *share_str = [array objectAtIndex:i];
-            NSLog(@"share_str:%@",share_str);
-//            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[share_str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
-            [self.dataSource addObject:share_str];
+            NSString *roadname = array[i][@"road_name"];
+            NSString *mdate = array[i][@"measure_date"];
+            NSString *sensordata = array[i][@"sensor_data"];
+            NSLog(@"分享数据是：%@,%@,%@,%@,%@",username,sharedate,roadname,mdate,sensordata);
+            
+            NSArray *dataTmp = [[NSArray alloc]initWithObjects:username,sharedate,roadname,mdate,sensordata, nil];
+            [self.dataSource addObject:dataTmp];
+            
+//            NSDictionary *share_str = [array objectAtIndex:i];
+//            NSLog(@"share_str:%@",share_str);
+//            [self.dataSource addObject:share_str];
         }
     }
-    NSLog(@"朋友圈数据：%@",self.dataSource);
+//    NSLog(@"朋友圈数据：%@",self.dataSource);
     
 }
 
@@ -117,4 +137,52 @@
     
     [self performSegueWithIdentifier:@"quit" sender:self];
 }
+
+
+#pragma mark 加载所有数据
+-(void)loadData{
+    
+    [self.shareTable reloadData];
+}
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+#pragma mark Sections的个数
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+#pragma mark cell的总个数
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSource.count;;
+}
+
+#pragma mark cell的高度
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100.f;
+}
+
+#pragma mark 设置每个cell的视图
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idCellRecord" forIndexPath:indexPath];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@分享于%@",[[self.dataSource objectAtIndex:indexPath.row] objectAtIndex:0], [[self.dataSource objectAtIndex:indexPath.row] objectAtIndex:1]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ 在 %@ 测量得到的平坦数据是 %@",[[self.dataSource objectAtIndex:indexPath.row] objectAtIndex:2],[[self.dataSource objectAtIndex:indexPath.row] objectAtIndex:3],[[self.dataSource objectAtIndex:indexPath.row] objectAtIndex:4]];
+    [cell.textLabel setNumberOfLines:3];//可以显示3行
+    
+    //设置cell不能点击
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //去掉右边">"
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
+    return cell;
+}
+
+#pragma mark 去除 tableView 多余的横线
+- (void)setTableFooterView:(UITableView *)tb {
+    if (!tb) {
+        return;
+    }
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor whiteColor];
+    [tb setTableFooterView:view];
+}
+
 @end
