@@ -9,15 +9,16 @@
 #import "IsLoginViewController.h"
 #import "LoginViewController.h"
 #import "CommunityService.h"
+#import "MozTopAlertView.h"
 
 @implementation IsLoginViewController
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    self.time = self.time + 1;
-    
     [self.loading startAnimating];
+   
+    [self getsharelist];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     self.navigationController.navigationBar.translucent = NO;
@@ -40,12 +41,6 @@
     NSString *name = [defaults stringForKey:@"username"];
     self.userNameLable.text = name;
     
-    if (self.time<1) {
-        [self getsharelist];
-    }else{
-        [self loadData];
-        [self.loading stopAnimating];
-    }
     
     
     //去除TableView多余横线
@@ -102,28 +97,29 @@
     NSLog(@"array:%@",array);
     if (!error&&array) {
         self.dataSource = [[NSMutableArray alloc]init];
-        for (int i=0; i<array.count; i++) {
-            
-//            NSString *test = [[NSString alloc]initWithFormat:@"%@",[[self.dataSource objectAtIndex:i]objectAtIndex:0]];
-//            NSLog(@"test:%@",test);
-            
-            NSString *username = array[i][@"user_name"];
-            NSString *sharedate = array[i][@"share_date"];
-            
-            NSString *roadname = array[i][@"road_name"];
-            NSString *mdate = array[i][@"measure_date"];
-            NSString *sensordata = array[i][@"sensor_data"];
-            NSLog(@"分享数据是：%@,%@,%@,%@,%@",username,sharedate,roadname,mdate,sensordata);
-            
-            NSArray *dataTmp = [[NSArray alloc]initWithObjects:username,sharedate,roadname,mdate,sensordata, nil];
-            [self.dataSource addObject:dataTmp];
-            
-//            NSDictionary *share_str = [array objectAtIndex:i];
-//            NSLog(@"share_str:%@",share_str);
-//            [self.dataSource addObject:share_str];
+        int count = (int)[array count];
+        NSLog(@"分享数据数量：%d",count);
+        
+        if (count>0) {
+            for (int n=count-1; n>-1; n--) {
+                //for (int i= 0; i<array.count; i++) {
+                
+                NSString *username = array[n][@"user_name"];
+                NSString *sharedate = array[n][@"share_date"];
+                
+                NSString *roadname = array[n][@"road_name"];
+                NSString *mdate = array[n][@"measure_date"];
+                NSString *sensordata = array[n][@"sensor_data"];
+                NSLog(@"分享数据是：%@,%@,%@,%@,%@",username,sharedate,roadname,mdate,sensordata);
+                
+                NSArray *dataTmp = [[NSArray alloc]initWithObjects:username,sharedate,roadname,mdate,sensordata, nil];
+                [self.dataSource addObject:dataTmp];
+            }
+
+        }else{
+            [MozTopAlertView showWithType:MozAlertTypeInfo text:@"社区暂时没有分享" parentView:self.view];
         }
-    }
-//    NSLog(@"朋友圈数据：%@",self.dataSource);
+   }
     
 }
 

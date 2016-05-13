@@ -61,25 +61,25 @@
     self.altUIView.layer.borderWidth = 1;
     self.altUIView.layer.borderColor = [[UIColor colorWithRed:0.77 green:0.77 blue:0.77 alpha:1] CGColor];
     
-    //构造折线数据对象
-    CLLocationCoordinate2D commonPolylineCoords[4];
-    commonPolylineCoords[0].latitude = 39.832136;
-    commonPolylineCoords[0].longitude = 116.34095;
-    
-    commonPolylineCoords[1].latitude = 39.832136;
-    commonPolylineCoords[1].longitude = 116.42095;
-    
-    commonPolylineCoords[2].latitude = 39.902136;
-    commonPolylineCoords[2].longitude = 116.42095;
-    
-    commonPolylineCoords[3].latitude = 39.902136;
-    commonPolylineCoords[3].longitude = 116.44095;
-    
-    //构造折线对象
-    MKPolyline *commonPolyline = [MKPolyline polylineWithCoordinates:commonPolylineCoords count:4];
-    
-    //在地图上添加折线对象
-    [_mapView addOverlay: commonPolyline];
+//    //构造折线数据对象
+//    CLLocationCoordinate2D commonPolylineCoords[4];
+//    commonPolylineCoords[0].latitude = 39.832136;
+//    commonPolylineCoords[0].longitude = 116.34095;
+//    
+//    commonPolylineCoords[1].latitude = 39.832136;
+//    commonPolylineCoords[1].longitude = 116.42095;
+//    
+//    commonPolylineCoords[2].latitude = 39.902136;
+//    commonPolylineCoords[2].longitude = 116.42095;
+//    
+//    commonPolylineCoords[3].latitude = 39.902136;
+//    commonPolylineCoords[3].longitude = 116.44095;
+//    
+//    //构造折线对象
+//    MKPolyline *commonPolyline = [MKPolyline polylineWithCoordinates:commonPolylineCoords count:4];
+//    
+//    //在地图上添加折线对象
+//    [_mapView addOverlay: commonPolyline];
     
 }
 
@@ -99,7 +99,10 @@
 -(void)showLine{
     HistoryViewController *historyVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
     
-    self.detailArray = historyVC.arryDetailData;
+    //self.detailArray = historyVC.arryDetailData;
+    
+    NSLog(@"arryDetailData数据是：%@",historyVC.arryDetailData);
+    
     //得到中点坐标
     NSString *centerLat = [[NSString alloc]initWithFormat:@"%@",[[historyVC.arryDetailData objectAtIndex:historyVC.arryDetailData.count/2]objectAtIndex:2]];
     NSString *centerLng = [[NSString alloc]initWithFormat:@"%@",[[historyVC.arryDetailData objectAtIndex:historyVC.arryDetailData.count/2]objectAtIndex:3]];

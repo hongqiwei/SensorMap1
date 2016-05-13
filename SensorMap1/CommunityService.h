@@ -16,11 +16,5 @@
 + (NSArray *)getShareListWithUserName:(NSString *)username
                              error:(NSError *__autoreleasing *)error;
 
-+ (bool)showByRoadName:(NSString *)roadname
-               AndSensorData:(NSString *)sensordata
-                    AndMeasureDate:(NSString *)measuredate
-                        AndShareUser:(NSString *)username
-                            AndShareDate:(NSString *)sharedate
-                                error:(NSError **)error;
 
 @end

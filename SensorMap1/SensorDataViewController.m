@@ -65,7 +65,7 @@
         sensor.yAxisMaxValue = 5;
     }else{
         //sensor.yAxisMaxValue = ceilf(self.maxY*1.2);//pow(2, 3)
-        sensor.yAxisMaxValue = ceil(pow((self.maxY+1), 2)*1.2);
+        sensor.yAxisMaxValue = ceil(5);//ceil(pow((self.maxY+1), 2)*1.2);
     }
     
     NSLog(@"yAxisMaxValue:%f",sensor.yAxisMaxValue);
@@ -104,7 +104,7 @@
     self.arrayData = [[NSMutableArray alloc]init];
     for (int n=0; n<detailVC.detailArray.count; n++) {
         NSString *ptmp = [[NSString alloc]initWithFormat:@"%@",[[detailVC.detailArray objectAtIndex:n]objectAtIndex:6]];
-        NSString  *ptmp1  = [[NSString alloc]initWithFormat:@"%f",pow([ptmp doubleValue]+1, 2)] ;
+        NSString  *ptmp1  = [[NSString alloc]initWithFormat:@"%f",[ptmp doubleValue]] ;
         
         [self.arrayData addObject:ptmp1];
     }

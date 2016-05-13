@@ -252,6 +252,7 @@
         
         [self pauseTimer];
     }else{
+        
         [measureTime start];
         [_StartOrRusumeButton setTitle:@"暂停" forState:UIControlStateNormal];
         
@@ -282,6 +283,7 @@
 
 //开始定时器
 - (void)startTimer{
+    
     self.t = 1.0;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:(self.t) target:self selector:@selector(dataMeasure) userInfo:nil repeats:YES];
     //self.sensorTimer = [NSTimer scheduledTimerWithTimeInterval:(self.t) target:self  selector:@selector(useAccelermeterAndGyro) userInfo:nil repeats:YES];
@@ -302,12 +304,13 @@
 
 //复位定时器
 - (void)resetTimer{
-    
+
     [self.locationArray removeAllObjects];
+    [self.dataDetailArray removeAllObjects];
     [self.distanceArray removeAllObjects];
     self.sumDistance = 0;
-     self.mileageLable.text = [[NSString alloc] initWithFormat:@"%.2f",self.sumDistance/1000];
-    //self.timeInterval = 0;
+    self.mileageLable.text = [[NSString alloc] initWithFormat:@"%.2f",self.sumDistance/1000];
+    self.timeInterval = 0;
     self.speed = 0;
     self.mSpeedLable.text = @"0.00";
     self.avgSpeed = 0;
@@ -403,6 +406,9 @@
         NSLog(@"accZ的值为：%@",accZ);
         
         NSArray *dataTmp = [[NSArray alloc]initWithObjects:secID,lat1,log1,speed,alt,accZ, nil];
+        
+        NSLog(@"保存之前的数组：%@",self.dataDetailArray);
+        
         [self.dataDetailArray addObject:dataTmp];
         NSLog(@"保存在数组当中的数据：%@",self.dataDetailArray);
         

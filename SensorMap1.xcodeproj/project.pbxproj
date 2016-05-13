@@ -19,7 +19,6 @@
 		4D0C58701CD49A410005FDFE /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C586B1CD49A410005FDFE /* NSString+FontAwesome.m */; };
 		4D0C58711CD49A410005FDFE /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C586D1CD49A410005FDFE /* UIFont+FontAwesome.m */; };
 		4D137F661CD77716003D871E /* IsLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F651CD77716003D871E /* IsLoginViewController.m */; };
-		4D137F691CD777C6003D871E /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D137F681CD777C6003D871E /* CommunityViewController.m */; };
 		4D137F6B1CD7829F003D871E /* community.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F6A1CD7829F003D871E /* community.png */; };
 		4D137F6F1CD78471003D871E /* More.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F6E1CD78471003D871E /* More.png */; };
 		4D137F711CD784B3003D871E /* 头像.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 4D137F701CD784B3003D871E /* 头像.PNG */; };
@@ -110,8 +109,6 @@
 		4D0C586D1CD49A410005FDFE /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
 		4D137F641CD77716003D871E /* IsLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsLoginViewController.h; sourceTree = "<group>"; };
 		4D137F651CD77716003D871E /* IsLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsLoginViewController.m; sourceTree = "<group>"; };
-		4D137F671CD777C6003D871E /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
-		4D137F681CD777C6003D871E /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
 		4D137F6A1CD7829F003D871E /* community.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = community.png; sourceTree = "<group>"; };
 		4D137F6E1CD78471003D871E /* More.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = More.png; sourceTree = "<group>"; };
 		4D137F701CD784B3003D871E /* 头像.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "头像.PNG"; sourceTree = "<group>"; };
@@ -312,8 +309,6 @@
 				4D081BE71CD715DA00D9772D /* LoginViewController.m */,
 				4D137F641CD77716003D871E /* IsLoginViewController.h */,
 				4D137F651CD77716003D871E /* IsLoginViewController.m */,
-				4D137F671CD777C6003D871E /* CommunityViewController.h */,
-				4D137F681CD777C6003D871E /* CommunityViewController.m */,
 				4D081BE41CD715A200D9772D /* Images.xcassets */,
 				4D1422A41CBB36B0005D81C3 /* Assets.xcassets */,
 				4DBF59791CCF13D400E028AA /* Main.storyboard */,
@@ -568,7 +563,6 @@
 				4D4577001CBCD41800EEADDB /* EditAnnotationViewController.m in Sources */,
 				4D1422A31CBB36B0005D81C3 /* SensorMap1.xcdatamodeld in Sources */,
 				4D137F7A1CD86355003D871E /* RegisterService.m in Sources */,
-				4D137F691CD777C6003D871E /* CommunityViewController.m in Sources */,
 				4D553FC91CD0ED090020B36D /* UIView+Extension.m in Sources */,
 				4D137F881CD984AA003D871E /* CommunityService.m in Sources */,
 				4D553FC31CD0EBBD0020B36D /* DVLineChartView.m in Sources */,
